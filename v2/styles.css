@@ -1,0 +1,188 @@
+.about {
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    margin: 2rem auto; /* Centering the content */
+    max-width: 1200px; /* Restrict width */
+}
+
+.about h2, .about p {
+    color: #333; /* Ensure text remains readable */
+}
+
+/* General Body and Background Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: url('images/tech-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.header p {
+    font-size: 1rem;
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 1rem;
+    border: 3px solid #fff;
+}
+
+/* Navigation Bar */
+nav {
+    background: #0056b3;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #003f7d;
+    border-radius: 5px;
+}
+
+/* Overview Section */
+.overview {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin: 2rem auto;
+    max-width: 90%; /* Full width on smaller screens */
+    line-height: 1.6;
+}
+
+.overview h3 {
+    color: #0056b3;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0056b3;
+    display: inline-block;
+    font-size: 1.5rem; /* Adjusted for smaller screens */
+}
+
+.overview p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.button-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #0056b3;
+    box-shadow: 0 15px 20px rgba(0, 86, 179, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Footer Section */
+footer {
+    background: #0056b3;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer .social-icons {
+    margin-top: 1rem;
+}
+
+footer .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ffdd57;
+}
+
+/* Floating Animation */
+#background-animation {
+    display: none; /* Hides floating animation on smaller devices for performance */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+    }
+
+    .overview {
+        padding: 1rem;
+    }
+
+    .button-wrapper .btn {
+        display: block;
+        width: 100%; /* Buttons take full width on mobile */
+        margin-bottom: 1rem; /* Add spacing between buttons */
+    }
+}
+ 
