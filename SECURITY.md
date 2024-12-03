@@ -2,7 +2,6 @@
 
 Security Policy Overview
 To ensure the best possible support and security for our systems, we outline the following policy regarding software versions:
-
 🚀 Version	✅ Supported Status
 2.5	❌ Not Supported
 2	✅ Supported
