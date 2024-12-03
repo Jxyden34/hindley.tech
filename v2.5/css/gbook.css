@@ -1,0 +1,108 @@
+/* Guestbook Container */
+.guestbook {
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Depth effect */
+    margin: 2rem auto;
+    max-width: 900px; /* Restrict width */
+}
+
+/* Guestbook Header */
+.guestbook h2 {
+    color: #0056b3; /* Match your site's accent color */
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* Form Styling */
+.guestbook form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between form elements */
+    margin-bottom: 2rem;
+}
+
+.guestbook label {
+    font-weight: bold;
+    color: #333;
+}
+
+.guestbook input,
+.guestbook textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    font-size: 1rem;
+}
+
+.guestbook textarea {
+    resize: vertical; /* Allow resizing only vertically */
+}
+
+.guestbook button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); /* Button shadow */
+}
+
+.guestbook button:hover {
+    background: #0056b3;
+    transform: translateY(-3px); /* Hover lift effect */
+    box-shadow: 0 8px 15px rgba(0, 86, 179, 0.5); /* Stronger shadow */
+}
+
+/* Guestbook Entries Section */
+.guestbook-entries {
+    border-top: 2px solid #0056b3; /* Divider line */
+    padding-top: 1.5rem;
+}
+
+.guestbook .entry {
+    background: rgba(240, 240, 240, 0.9); /* Slightly gray background */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.guestbook .entry strong {
+    color: #0056b3; /* Highlight name in blue */
+    font-size: 1.1rem;
+}
+
+.guestbook .entry p {
+    color: #333;
+    margin: 0.5rem 0 0 0;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .guestbook {
+        padding: 1rem;
+    }
+
+    .guestbook h2 {
+        font-size: 1.5rem;
+    }
+
+    .guestbook button {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .guestbook .entry {
+        font-size: 0.9rem;
+    }
+}
