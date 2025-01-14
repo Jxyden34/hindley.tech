@@ -1,0 +1,247 @@
+/* General Styling for Desktop and Phones */
+.about {
+    background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 2rem;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    margin: 2rem auto; /* Centering the content */
+    max-width: 1200px; /* Restrict width */
+}
+
+.about h2, .about p {
+    color: #333; /* Ensure text remains readable */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: url('images/tech-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.header img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 1rem;
+}
+
+nav {
+    background: #0056b3;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+}
+
+nav ul li a:hover {
+    background: #003f7d;
+    border-radius: 5px;
+}
+
+.overview {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.overview .content img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 10px;
+}
+
+.button-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #0056b3;
+    box-shadow: 0 15px 20px rgba(0, 86, 179, 0.5);
+    transform: translateY(-3px);
+}
+
+footer {
+    background: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffdd57;
+}
+
+#background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#background-animation .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    animation: float 15s infinite ease-in-out;
+}
+
+#background-animation .circle:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+}
+
+#background-animation .circle:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 70%;
+}
+
+#background-animation .circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 80%;
+    left: 30%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 768px) {
+    /* About Section */
+    .about {
+        padding: 1rem; /* Reduce padding for smaller screens */
+        margin: 1rem auto; /* Adjust margins */
+        max-width: 95%; /* Ensure it fits the screen width */
+    }
+
+    .about h2 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .about p {
+        font-size: 1rem; /* Smaller text size for readability */
+        line-height: 1.5; /* Adjust line spacing */
+    }
+
+    /* Header Section */
+    .header img {
+        width: 100px; /* Smaller profile image */
+    }
+
+    .header h1 {
+        font-size: 1.8rem; /* Adjust header font size */
+    }
+
+    .header p {
+        font-size: 0.9rem; /* Adjust tagline size */
+    }
+
+    /* Navigation */
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Add spacing between links */
+    }
+
+    /* Footer Section */
+    footer {
+        padding: 0.5rem 0; /* Reduce footer padding */
+    }
+
+    footer .social-icons a {
+        font-size: 1.2rem; /* Smaller icons */
+        margin: 0 0.3rem; /* Reduce spacing */
+    }
+
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 100%; /* Full width for buttons */
+        margin-bottom: 1rem; /* Add spacing between buttons */
+    }
+
+    /* Background Animation */
+    #background-animation {
+        display: none; /* Hide background animation on phones */
+    }
+}
