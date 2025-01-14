@@ -1,0 +1,190 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: url('images/tech-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Header Section */
+.header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.header img {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 1rem;
+    border: 4px solid #fff;
+}
+
+/* Navigation Bar */
+nav {
+    background: #0056b3;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #003f7d;
+    border-radius: 5px;
+}
+
+/* Content Sections */
+section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+/* About Section */
+.about h2 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    margin-bottom: 1rem;
+}
+
+/* Contact Cards */
+.contact-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    flex: 1;
+    margin: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card h3 {
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.contact-card p a {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.contact-card p a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #0056b3;
+    box-shadow: 0 15px 20px rgba(0, 86, 179, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer .social-icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ffdd57;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
