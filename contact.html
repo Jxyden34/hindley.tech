@@ -1,0 +1,110 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Jayden Hindley</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-left">
+        <div class="nav-logo">JH</div>
+        <div class="nav-title">hindley.<span>tech</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Want to talk about infrastructure, automation, or a project idea? Drop a message below.
+      </p>
+
+      <div class="contact-layout">
+        <!-- Form -->
+        <div class="form-card">
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" name="subject" placeholder="What would you like to talk about?" />
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Share as much detail as you'd like…" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact info / quick facts -->
+        <aside class="contact-card">
+          <h3>Quick details</h3>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <span>jayden@hindley.tech</span></li>
+            <li><strong>Location:</strong> <span>Gomersal, United Kingdom</span></li>
+            <li><strong>Interests:</strong> <span>Cybersecurity, automation, infrastructure, local AI</span></li>
+          </ul>
+
+          <div class="contact-badge">
+            <span>💻</span>
+            <span>Open to interesting technical projects and collaborations.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chatbot -->
+  <button id="chatbot-toggle" aria-label="Open AI chat">
+    💬
+  </button>
+
+  <div id="chatbot-container">
+    <div id="chatbot-header">Chat with Jayden's AI</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type a message..." />
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> hindley.tech</span>
+      <span>Built to be talked to.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
