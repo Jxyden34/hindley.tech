@@ -6,7 +6,19 @@ const cors = require('cors');
 const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : ['https://hindley.tech'];
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g. same-origin, curl) or from allowed list
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 
 // Log every incoming request
@@ -74,7 +86,7 @@ app.post('/api/chat', async (req, res) => {
       console.error('HF API error:', hfRes.status, errBody);
       return res
         .status(hfRes.status)
-        .json({ error: `HF error ${hfRes.status}: ${errBody}` });
+        .json({ error: `Request failed with status ${hfRes.status}.` });
     }
 
     const data = await hfRes.json();
@@ -90,7 +102,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({ reply });
   } catch (err) {
     console.error('Server error:', err);
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: 'Internal server error.' });
   }
 });
 

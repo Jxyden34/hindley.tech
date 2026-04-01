@@ -309,6 +309,15 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    function escHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     let mapInstance = null;
     let globalIpData = {}; // store details for modal
 
@@ -491,8 +500,8 @@
                   mapData[item.code] = item.count;
                   return `
                   <div class="profile-stat" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <span class="profile-stat-label">${item.flag} ${item.name}</span>
-                    <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} bans</span>
+                    <span class="profile-stat-label">${escHtml(item.flag)} ${escHtml(item.name)}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e;">${escHtml(item.count)} bans</span>
                   </div>
                 `}).join('');
                 
@@ -587,22 +596,22 @@
                     topHtml += `
                     <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px; align-items: center;">
-                            <span style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #ff5e5e;">${item.flag} ${item.ip}</span>
-                            <span style="font-weight: bold; font-size: 1.1rem; color: #ff5e5e;">${item.count} Bans</span>
+                            <span style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #ff5e5e;">${escHtml(item.flag)} ${escHtml(item.ip)}</span>
+                            <span style="font-weight: bold; font-size: 1.1rem; color: #ff5e5e;">${escHtml(item.count)} Bans</span>
                         </div>
                         <div style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
-                            <div><strong>ISP:</strong> ${item.isp || "Unknown"}</div>
-                            <div><strong>Organization:</strong> ${item.org || "Unknown"}</div>
-                            <div><strong>Location:</strong> ${item.city || "Unknown"}, ${item.country || "Unknown"}</div>
-                            <div style="margin-top: 5px;"><a href="https://www.abuseipdb.com/check/${item.ip}" target="_blank" style="color: var(--accent); text-decoration: none;">View on AbuseIPDB ↗</a></div>
+                            <div><strong>ISP:</strong> ${escHtml(item.isp || "Unknown")}</div>
+                            <div><strong>Organization:</strong> ${escHtml(item.org || "Unknown")}</div>
+                            <div><strong>Location:</strong> ${escHtml(item.city || "Unknown")}, ${escHtml(item.country || "Unknown")}</div>
+                            <div style="margin-top: 5px;"><a href="https://www.abuseipdb.com/check/${escHtml(item.ip)}" target="_blank" style="color: var(--accent); text-decoration: none;">View on AbuseIPDB ↗</a></div>
                         </div>
                     </div>
                     `;
                 } else {
                     topHtml += `
-                    <div class="profile-stat clickable-ip" onclick="openModal('${item.ip}')" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                      <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem;" title="${item.country}">${item.flag} ${item.ip}</span>
-                      <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} bans</span>
+                    <div class="profile-stat clickable-ip" data-ip="${escHtml(item.ip)}" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                      <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem;" title="${escHtml(item.country)}">${escHtml(item.flag)} ${escHtml(item.ip)}</span>
+                      <span class="profile-stat-value" style="color: #ff5e5e;">${escHtml(item.count)} bans</span>
                     </div>
                     `;
                 }
@@ -623,9 +632,9 @@
                       };
                   }
                   return `
-                  <div class="profile-stat clickable-ip" onclick="openModal('${item.ip}')" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <span class="profile-stat-label" style="font-size: 0.9rem;">${item.time}</span>
-                    <span class="profile-stat-value" style="color: #ff5e5e; font-family: monospace;">Blocked ${item.flag} ${item.ip}</span>
+                  <div class="profile-stat clickable-ip" data-ip="${escHtml(item.ip)}" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <span class="profile-stat-label" style="font-size: 0.9rem;">${escHtml(item.time)}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e; font-family: monospace;">Blocked ${escHtml(item.flag)} ${escHtml(item.ip)}</span>
                   </div>
               `}).join('');
           } else {
@@ -641,8 +650,8 @@
                   const pwd = parts.slice(1).join(':') || '[empty]';
                   return `
                   <div class="profile-stat" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem; color: #a3b8cc;">${usr} : ${pwd}</span>
-                    <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} hits</span>
+                    <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem; color: #a3b8cc;">${escHtml(usr)} : ${escHtml(pwd)}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e;">${escHtml(item.count)} hits</span>
                   </div>
               `}).join('');
           } else {
@@ -663,6 +672,12 @@
 
     // Auto-refresh the backend JSON data silently every 60 seconds
     setInterval(loadSecurityData, 60000);
+
+    // Delegated click handler for clickable-ip elements (uses data-ip to avoid inline JS injection)
+    document.addEventListener('click', function(e) {
+        const el = e.target.closest('.clickable-ip[data-ip]');
+        if (el) openModal(el.dataset.ip);
+    });
   </script>
 
   <!-- Chatbot -->
