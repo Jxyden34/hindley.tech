@@ -1,0 +1,298 @@
+/* css/about.css */
+
+.section-title {
+  background: linear-gradient(to right, #f8fafc 20%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+.about-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.about-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(148, 163, 184, 0.2), transparent);
+}
+
+/* Transform lists into chips/tags */
+.about-list {
+  list-style: none;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-list li {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.about-list li:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Remove old bullet spans if they exist in HTML, or style them if we can't remove */
+.bullet {
+  display: none; /* Hide the old span bullet */
+}
+
+/* Experience Section enhancements */
+.exp-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid rgba(148, 163, 184, 0.15);
+  transition: border-color 0.3s ease;
+}
+
+.exp-item:hover {
+  border-left-color: var(--accent);
+}
+
+.exp-heading {
+  margin-bottom: 0.6rem;
+}
+
+.exp-heading h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.exp-period {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'Inter', monospace; /* Monospace for numbers looks cool? or just Inter */
+  opacity: 0.9;
+}
+
+/* Revert list style for experience vs skills if needed? 
+   Actually, the user has lists in experience too. 
+   Let's check if we want those as chips. 
+   Experience items (lines 91-100, 108-112) are sentences. Chips might look weird.
+   Let's use a standard list for .exp-item .about-list
+*/
+
+.exp-item .about-list {
+  display: block; /* Stack them for experience */
+}
+
+.exp-item .about-list li {
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.4rem;
+  border-radius: 0;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.exp-item .about-list li:hover {
+  background: transparent;
+  transform: none;
+  border-color: transparent;
+}
+
+/* Add custom bullet for experience list */
+.exp-item .about-list li::before {
+  content: "▹";
+  color: var(--accent);
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+
+/* ? CV Button */
+.cv-btn-wrapper {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(124, 58, 237, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  color: #ddd6fe;
+  font-weight: 500;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
+.cv-btn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: #8b5cf6;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.cv-btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* Timeline */
+.timeline-card {
+  margin-top: 2rem;
+  background: linear-gradient(to bottom right, var(--bg-elevated), rgba(30, 41, 59, 0.4));
+}
+
+.timeline {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(148, 163, 184, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Year Badge */
+.timeline-item::before {
+  content: attr(data-year);
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  /* Reset absolute sizing from old css */
+  position: static; 
+}
+
+/* Make the content block below the badge */
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Dot on the line */
+.timeline-dot {
+  position: absolute;
+  left: -2.35rem; /* Adjust based on padding-left of .timeline */
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0ea5e9; /* Light blue accent */
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 10px rgba(14, 165, 233, 0.5);
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.4);
+  background: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 15px rgba(167, 139, 250, 0.6);
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.timeline-item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.timeline-item:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.timeline-item:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+@keyframes timeline-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .about-rows {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timeline {
+    padding-left: 1.8rem;
+  }
+}
+
+/* Full-width timeline card fix */
+.timeline-card {
+  grid-column: 1 / -1;
+}
+
+
+.cv-btn-wrapper {
+  margin: 1rem 0 1.6rem 0;
+  display: block;
+}

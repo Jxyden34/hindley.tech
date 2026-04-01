@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security | Jayden Hindley</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
+  <link rel="stylesheet" href="css/terminal.css">
+  <!-- jsVectorMap dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+  
+  <style>
+    .threat-map-container {
+        width: 100%;
+        height: 400px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+    }
+    .clickable-ip {
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .clickable-ip:hover {
+        color: #ff5e5e !important;
+        text-decoration: underline;
+    }
+    /* Modal Styling */
+    .ip-modal {
+        display: none;
+        position: fixed; 
+        z-index: 9999; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0,0,0,0.8);
+        backdrop-filter: blur(4px);
+    }
+    .ip-modal-content {
+        background-color: #111;
+        margin: 10% auto; 
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        color: #fff;
+        position: relative;
+    }
+    .ip-modal-close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .ip-modal-close:hover,
+    .ip-modal-close:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    .ip-detail-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding-bottom: 10px;
+    }
+    .ip-detail-label {
+        color: #aaa;
+        font-size: 0.9rem;
+    }
+    .ip-detail-val {
+        font-weight: 500;
+        text-align: right;
+    }
+    .search-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .search-box input {
+        flex: 1;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+    }
+    .search-box button {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        background: var(--accent);
+        color: #000;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    .search-box button:hover {
+        opacity: 0.9;
+    }
+
+    @keyframes sonarPulse {
+        0% { stroke-width: 1; stroke-opacity: 1; r: 5; }
+        100% { stroke-width: 20; stroke-opacity: 0; r: 25; }
+    }
+    .jvm-series-h-marker.pulse-active {
+        animation: sonarPulse 1.5s infinite;
+    }
+    .sonar-ping-marker {
+        fill: #ff5e5e !important;
+        stroke: #ff5e5e !important;
+        animation: sonarPulse 1s ease-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-left">
+        <div class="nav-logo">JH</div>
+        <div class="nav-title">hindley.<span>tech</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li><a href="/project">Projects</a></li>
+        <li><a href="/security" class="active">Security</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="grain-overlay"></div>
+  <div class="scanline"></div>
+
+  
+
+  <main>
+    <section class="hero" style="min-height: auto; padding-bottom: 2rem;">
+      <div class="container">
+        <div class="animate-fade-up" style="animation-delay: 0.1s;" data-reveal="fade-up">
+          <div class="chip-row">
+            <span class="chip">FAIL2BAN CORE</span>
+            <span class="chip">LIVE TELEMETRY</span>
+            <span class="chip">GEO IP UPLINK</span>
+          </div>
+
+          <h1 class="hero-heading cyber-heading glitch-title glitch-periodic" data-text="Threat Intelligence">
+            Threat <span>Intelligence</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            > <span class="typewriter-animation">Automated infrastructure defense monitoring. Tracking malicious ingress attempts across global nodes.</span>
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="home-highlights" style="padding-top: 1rem;">
+      <div class="container">
+        <!-- Overview Stats -->
+        <div class="highlights-grid animate-fade-up" style="animation-delay: 0.15s; margin-bottom: 2rem;">
+          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 1;">
+            <h3 class="cyber-tag" style="font-size: 0.8rem;">TOTAL BANS</h3>
+            <p id="total-bans" style="font-family: 'JetBrains Mono', monospace; font-size: 3.5rem; font-weight: 700; margin: 15px 0; color: #ff5e5e; text-shadow: 0 0 15px rgba(255, 94, 94, 0.4);">--</p>
+            <p style="font-size: 0.75rem; opacity: 0.7;">> MALICIOUS PAYLOADS NEUTRALIZED</p>
+          </article>
+          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 2;">
+            <h3 class="cyber-tag" style="font-size: 0.8rem;">UNIQUE OFFENDERS</h3>
+            <p id="unique-ips" style="font-family: 'JetBrains Mono', monospace; font-size: 3.5rem; font-weight: 700; margin: 15px 0; color: #ff5e5e; text-shadow: 0 0 15px rgba(255, 94, 94, 0.4);">--</p>
+            <p style="font-size: 0.75rem; opacity: 0.7;">> DISTINCT SOURCE IDENTITIES</p>
+          </article>
+          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 3;">
+            <h3 class="cyber-tag" style="font-size: 0.8rem;">DATA_SYNC_TIMESTAMP</h3>
+            <p id="last-updated" style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 600; margin: 25px 0; color: var(--text-muted);">--</p>
+            <p style="font-size: 0.75rem; opacity: 0.7;">> AUTO REFRESH: ACTIVE (60S)</p>
+          </article>
+          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 4; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; background: rgba(0,0,0,0.3);">
+            <h3 class="cyber-tag" style="font-size: 0.8rem; margin-bottom: 10px;">SYSTEM VITAL PULSE</h3>
+            <canvas id="oscilloscope" style="width: 100%; height: 60px;"></canvas>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; margin-top: 10px; color: #666;">STATUS: <span id="pulse-status" style="color: #00ffcc; font-weight: bold;">NOMINAL</span></p>
+          </article>
+        </div>
+
+        <!-- Global Threat Map Section -->
+        <div class="hero-grid animate-fade-up" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; align-items: stretch; animation-delay: 0.2s;">
+            <aside class="profile-card tilt-card" style="height: 100%;">
+                <div class="profile-text" style="width: 100%;">
+                    <h2 class="cyber-heading glitch-title" data-text="GLOBAL_THREAT_MAP">GLOBAL THREAT MAP</h2>
+                    <p style="margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #a3b8cc;">> GEOSPATIAL VISUALIZATION: ACTIVE</p>
+                    <div id="map" class="threat-map-container"></div>
+                </div>
+            </aside>
+            <aside class="profile-card tilt-card" style="height: 100%;">
+                <div class="profile-text" style="width: 100%;">
+                    <h2 class="cyber-heading">TARGETED NODES</h2>
+                    <p style="margin-bottom: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #a3b8cc;">> INGRESS DENSITY PER REGION</p>
+                    <div id="top-countries-container" style="max-height: 400px; overflow-y: auto;">
+                        <p>Loading regions...</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+
+
+        <!-- Details -->
+        <div class="hero-grid" style="gap: 2rem; align-items: stretch; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <!-- Left: Top IPs -->
+          <div class="animate-fade-up" style="animation-delay: 0.3s;" data-reveal="fade-right">
+             <aside class="profile-card tilt-card" style="height: 100%;">
+                <div class="profile-text" style="width: 100%;">
+                   <h2 class="cyber-heading">TOP FREQUENCY OFFENDERS</h2>
+                   <p style="margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #a3b8cc;">> RANKED IDENTITIES: BLOCK COUNT > 10</p>
+                   <div id="top-ips-container">
+                      <p>Loading data...</p>
+                   </div>
+                </div>
+             </aside>
+          </div>
+
+          <!-- Middle: Honeypot Credentials -->
+          <div class="animate-fade-up" style="animation-delay: 0.35s;" data-reveal="fade-up">
+             <aside class="profile-card tilt-card" style="height: 100%;">
+                <div class="profile-text" style="width: 100%;">
+                   <h2 class="cyber-heading">HONEYPOT INGRESS LOG</h2>
+                   <p style="margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #a3b8cc;">> CAPTURED USR:PWD COMBINATIONS</p>
+                   <div id="top-passwords-container">
+                      <p>Loading data...</p>
+                   </div>
+                </div>
+             </aside>
+          </div>
+          
+          <!-- Right: Recent Activity -->
+          <div class="animate-fade-up" style="animation-delay: 0.4s;" data-reveal="fade-left">
+             <aside class="profile-card tilt-card" style="height: 100%;">
+                <div class="profile-text" style="width: 100%;">
+                   <h2 class="cyber-heading">REAL TIME ACTIVITY LOG</h2>
+                   <p style="margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #a3b8cc;">> LATEST SYSTEM DEFENSE TRIGGERS</p>
+                   <div id="recent-activity-container">
+                      <p>Loading data...</p>
+                   </div>
+                </div>
+             </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> hindley.tech</span>
+      <span class="cyber-tag">THREAT INTELLIGENCE ONLINE</span>
+    </div>
+  </footer>
+
+  <!-- IP Details Modal -->
+  <div id="ipModal" class="ip-modal">
+    <div class="ip-modal-content">
+      <span class="ip-modal-close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-ip-title" style="margin-bottom: 5px; color: #ff5e5e;">Loading...</h2>
+      <p id="modal-country" style="margin-bottom: 20px; color: #aaa;"></p>
+      
+      <div class="ip-detail-row">
+          <span class="ip-detail-label">City/Region</span>
+          <span class="ip-detail-val" id="modal-city">--</span>
+      </div>
+      <div class="ip-detail-row">
+          <span class="ip-detail-label">Internet Service Provider</span>
+          <span class="ip-detail-val" id="modal-isp">--</span>
+      </div>
+      <div class="ip-detail-row">
+          <span class="ip-detail-label">Organization / ASN</span>
+          <span class="ip-detail-val" id="modal-org">--</span>
+      </div>
+      <div class="ip-detail-row" id="modal-bans-row">
+          <span class="ip-detail-label">Recorded Bans</span>
+          <span class="ip-detail-val" id="modal-bans">--</span>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+          <a id="modal-abuseipdb-link" href="#" target="_blank" style="color: #4a90e2; font-size: 0.9rem; text-decoration: none;">View on AbuseIPDB ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let mapInstance = null;
+    let globalIpData = {}; // store details for modal
+
+    // --- Oscilloscope Animation Logic ---
+    const canvas = document.getElementById('oscilloscope');
+    const ctx = canvas.getContext('2d');
+    const pulseStatus = document.getElementById('pulse-status');
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+    let angle = 0;
+    let amplitude = 10;
+    let frequency = 0.05;
+    let lastBans = 0;
+    let spikeState = 0; // 0=nom, 1=spike, 2=recovery
+
+    function drawOscilloscope() {
+      if (width !== canvas.offsetWidth) {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      }
+      ctx.fillStyle = 'rgba(0,0,0,0.15)'; // Trail effect
+      ctx.fillRect(0, 0, width, height);
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = (spikeState > 0) ? '#ff5e5e' : '#00ffcc';
+      ctx.shadowBlur = (spikeState > 0) ? 15 : 5;
+      ctx.shadowColor = ctx.strokeStyle;
+      for (let i = 0; i < width; i++) {
+        const y = height / 2 + Math.sin(angle + i * frequency) * amplitude;
+        if (i === 0) ctx.moveTo(i, y);
+        else ctx.lineTo(i, y);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+      angle += 0.15;
+      if (spikeState === 1) {
+        amplitude += 2;
+        frequency += 0.01;
+        if (amplitude > 35) {
+            spikeState = 2;
+            pulseStatus.innerText = "THREAT DETECTED";
+            pulseStatus.style.color = "#ff5e5e";
+        }
+      } else if (spikeState === 2) {
+        amplitude -= 0.5;
+        frequency -= 0.002;
+        if (amplitude <= 10) {
+            amplitude = 10;
+            frequency = 0.05;
+            spikeState = 0;
+            pulseStatus.innerText = "NOMINAL";
+            pulseStatus.style.color = "#00ffcc";
+        }
+      }
+      requestAnimationFrame(drawOscilloscope);
+    }
+    drawOscilloscope();
+    // ------------------------------------
+
+    function triggerSonarPing(lat, lon, ip) {
+        if (!mapInstance) return;
+        
+        const markerId = "ping-" + Date.now();
+        mapInstance.addMarkers([{
+            name: "Recent Attack: " + ip,
+            coords: [lat, lon],
+            id: markerId,
+            style: { fill: '#ff5e5e', r: 6 }
+        }]);
+
+        // Find the marker element and add the pulse class
+        setTimeout(() => {
+            const markers = document.querySelectorAll('.jvm-marker');
+            markers.forEach(m => {
+                // If it's the one we just added (last one)
+                if (m.getAttribute('data-index') == mapInstance.markers.length - 1) {
+                    m.classList.add('sonar-ping-marker');
+                }
+            });
+        }, 100);
+
+        // Remove after 10 seconds
+        setTimeout(() => {
+            mapInstance.removeMarkers([markerId]);
+        }, 10000);
+    }
+
+    function openModalForData(ip, isp, org, city, flag, country, bans) {
+        document.getElementById('modal-ip-title').innerText = ip;
+        document.getElementById('modal-country').innerText = flag + " " + country;
+        document.getElementById('modal-city').innerText = city || "Unknown";
+        document.getElementById('modal-isp').innerText = isp || "Unknown";
+        document.getElementById('modal-org').innerText = org || "Unknown";
+        
+        const bansRow = document.getElementById('modal-bans-row');
+        if (bans !== null) {
+            bansRow.style.display = "flex";
+            document.getElementById('modal-bans').innerText = bans;
+        } else {
+            bansRow.style.display = "none";
+        }
+        
+        document.getElementById('modal-abuseipdb-link').href = "https://www.abuseipdb.com/check/" + ip;
+        document.getElementById('ipModal').style.display = "block";
+    }
+
+    function openModal(ip) {
+        if (globalIpData[ip]) {
+            const data = globalIpData[ip];
+            openModalForData(ip, data.isp, data.org, data.city, data.flag || "🌐", data.country, data.count);
+        } else {
+            // fallback lookup if not in cache (e.g. from recent)
+            lookupManualIP(ip);
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('ipModal').style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('ipModal')) closeModal();
+    }
+
+    function lookupManualIP(manualIpParam) {
+        const ip = manualIpParam || document.getElementById('ip-search-input').value.trim();
+        if (!ip) return;
+        
+        document.getElementById('modal-ip-title').innerText = "Locating " + ip + "...";
+        document.getElementById('modal-country').innerText = "";
+        document.getElementById('modal-city').innerText = "--";
+        document.getElementById('modal-isp').innerText = "--";
+        document.getElementById('modal-org').innerText = "--";
+        document.getElementById('modal-bans-row').style.display = "none";
+        document.getElementById('ipModal').style.display = "block";
+
+        fetch("http://ip-api.com/json/" + ip + "?fields=status,message,country,countryCode,city,isp,org,as,query")
+            .then(r => r.json())
+            .then(data => {
+                if(data.status === "success") {
+                    let flag = "🌐";
+                    if(data.countryCode) {
+                        flag = String.fromCodePoint(data.countryCode.charCodeAt(0) + 127397) + String.fromCodePoint(data.countryCode.charCodeAt(1) + 127397);
+                    }
+                    openModalForData(data.query, data.isp, data.org + " / " + data.as, data.city, flag, data.country, null);
+                } else {
+                    document.getElementById('modal-ip-title').innerText = "Look up failed";
+                    document.getElementById('modal-country').innerText = data.message || "Invalid IP";
+                }
+            }).catch(e => {
+                document.getElementById('modal-ip-title').innerText = "Error requesting data";
+            });
+    }
+
+    function loadSecurityData() {
+      fetch('/API/fail2ban_stats.json?t=' + Date.now())
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to load");
+            return response.json();
+        })
+        .then(data => {
+          const currentBans = data.total_bans || 0;
+          if (lastBans > 0 && currentBans > lastBans) {
+              // Spike the oscilloscope if a new ban is detected
+              spikeState = 1;
+          }
+          lastBans = currentBans;
+
+          document.getElementById('total-bans').innerText = currentBans;
+          document.getElementById('unique-ips').innerText = data.unique_ips_banned || 0;
+          document.getElementById('last-updated').innerText = data.last_updated || "Unknown";
+
+          // Collect map data
+          let mapData = {};
+
+          // Populate Top Countries
+          const countryContainer = document.getElementById('top-countries-container');
+          if (data.top_countries && data.top_countries.length > 0) {
+              countryContainer.innerHTML = data.top_countries.map(item => {
+                  mapData[item.code] = item.count;
+                  return `
+                  <div class="profile-stat" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <span class="profile-stat-label">${item.flag} ${item.name}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} bans</span>
+                  </div>
+                `}).join('');
+                
+                // Initialize map ONLY ONCE
+                if (!mapInstance) {
+                    mapInstance = new jsVectorMap({
+                      selector: '#map',
+                      map: 'world',
+                      backgroundColor: 'transparent',
+                      regionStyle: {
+                        initial: { fill: '#333' },
+                        hover: { fill: '#ff5e5e' }
+                      },
+                      markers: [
+                        { name: 'Huddersfield Node', coords: [53.6485, -1.7844], style: { fill: '#00ffcc', r: 7, strokeWidth: 2, stroke: '#fff' } }
+                      ],
+                      lines: [],
+                      lineStyle: {
+                        stroke: '#00ffcc',
+                        strokeWidth: 1.5,
+                        strokeDasharray: '6 3',
+                        animation: true
+                      },
+                      markerStyle: {
+                        initial: { fill: '#ff5e5e', stroke: '#fff', strokeWidth: 1, r: 5 }
+                      },
+                      visualizeData: {
+                        scale: ['#1e3a8a', '#00ffcc'],
+                        values: mapData
+                      },
+                      onRegionTooltipShow(event, tooltip, code) {
+                          let attacks = (mapInstance.series.regions[0].values && mapInstance.series.regions[0].values[code]) || 0;
+                          tooltip.text(
+                              tooltip.text() + ' - ' + attacks + ' attack(s)'
+                          )
+                      }
+                    });
+                } else {
+                    mapInstance.series.regions[0].setValues(mapData);
+                }
+
+                // --- Helper: Draw Traceroute Line ---
+                function addTraceroute(fromCoords, name) {
+                  if (!mapInstance) return;
+                  const lineId = 'line-' + Date.now();
+                  
+                  // Add marker for attacker
+                  mapInstance.addMarkers([{
+                    name: 'Attacker: ' + name,
+                    coords: fromCoords,
+                    style: { fill: '#ff5e5e', r: 4 }
+                  }]);
+
+                  // Draw line to Huddersfield
+                  mapInstance.addLines([{
+                    from: 'Attacker: ' + name,
+                    to: 'Huddersfield Node',
+                    style: { stroke: '#00ffcc', strokeWidth: 2, arc: true }
+                  }]);
+
+                  // Cleanup old lines/markers after 10 seconds to keep map clean
+                  setTimeout(() => {
+                    // Logic to remove markers/lines if jsVectorMap supports it via API
+                    // Note: Basic jsVectorMap version might be limited, but this creates the visual spike.
+                  }, 10000);
+                }
+
+          } else {
+              countryContainer.innerHTML = '<p>No country data recorded yet.</p>';
+          }
+
+          // Trigger sonar ping if first time loading or new ban
+          if (data.recent_activity && data.recent_activity.length > 0) {
+              const latest = data.recent_activity[0];
+              if (latest.lat && latest.lon) {
+                  const latestId = latest.ip + latest.time;
+                  if (latestId !== lastPingId) {
+                      triggerSonarPing(latest.lat, latest.lon, latest.ip);
+                      addTraceroute([latest.lat, latest.lon], latest.ip);
+                      lastPingId = latestId;
+                  }
+              }
+          }
+
+          // Populate Top IPs
+          const topContainer = document.getElementById('top-ips-container');
+          if (data.top_ips && data.top_ips.length > 0) {
+              let topHtml = "";
+              data.top_ips.forEach((item, index) => {
+                globalIpData[item.ip] = item;
+                if (index < 3) {
+                    topHtml += `
+                    <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; align-items: center;">
+                            <span style="font-family: monospace; font-size: 1.2rem; font-weight: bold; color: #ff5e5e;">${item.flag} ${item.ip}</span>
+                            <span style="font-weight: bold; font-size: 1.1rem; color: #ff5e5e;">${item.count} Bans</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: #ccc; line-height: 1.6;">
+                            <div><strong>ISP:</strong> ${item.isp || "Unknown"}</div>
+                            <div><strong>Organization:</strong> ${item.org || "Unknown"}</div>
+                            <div><strong>Location:</strong> ${item.city || "Unknown"}, ${item.country || "Unknown"}</div>
+                            <div style="margin-top: 5px;"><a href="https://www.abuseipdb.com/check/${item.ip}" target="_blank" style="color: var(--accent); text-decoration: none;">View on AbuseIPDB ↗</a></div>
+                        </div>
+                    </div>
+                    `;
+                } else {
+                    topHtml += `
+                    <div class="profile-stat clickable-ip" onclick="openModal('${item.ip}')" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                      <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem;" title="${item.country}">${item.flag} ${item.ip}</span>
+                      <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} bans</span>
+                    </div>
+                    `;
+                }
+              });
+              topContainer.innerHTML = topHtml;
+          } else {
+              topContainer.innerHTML = '<p>No bans recorded yet.</p>';
+          }
+
+          // Populate Recent Activity
+          const recentContainer = document.getElementById('recent-activity-container');
+          if (data.recent_activity && data.recent_activity.length > 0) {
+              recentContainer.innerHTML = data.recent_activity.map(item => {
+                  if(!globalIpData[item.ip]) {
+                      globalIpData[item.ip] = {
+                          isp: item.isp, org: item.org, city: item.city, 
+                          flag: item.flag, country: item.country, count: "Recent Action"
+                      };
+                  }
+                  return `
+                  <div class="profile-stat clickable-ip" onclick="openModal('${item.ip}')" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <span class="profile-stat-label" style="font-size: 0.9rem;">${item.time}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e; font-family: monospace;">Blocked ${item.flag} ${item.ip}</span>
+                  </div>
+              `}).join('');
+          } else {
+              recentContainer.innerHTML = '<p>No recent activity.</p>';
+          }
+
+          // Populate Honeypot Credentials
+          const pwdContainer = document.getElementById('top-passwords-container');
+          if (data.top_passwords && data.top_passwords.length > 0) {
+              pwdContainer.innerHTML = data.top_passwords.map(item => {
+                  const parts = item.combo.split(':');
+                  const usr = parts[0];
+                  const pwd = parts.slice(1).join(':') || '[empty]';
+                  return `
+                  <div class="profile-stat" style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <span class="profile-stat-label" style="font-family: monospace; font-size: 1.1rem; color: #a3b8cc;">${usr} : ${pwd}</span>
+                    <span class="profile-stat-value" style="color: #ff5e5e;">${item.count} hits</span>
+                  </div>
+              `}).join('');
+          } else {
+              pwdContainer.innerHTML = '<p>No honeypot data yet. The bots are quiet.</p>';
+          }
+
+        })
+        .catch(err => {
+           console.error(err);
+           document.getElementById('top-countries-container').innerHTML = '<p style="color:#ff5e5e;">Error loading map data.</p>';
+           document.getElementById('top-ips-container').innerHTML = '<p style="color:#ff5e5e;">Error loading statistics data.</p>';
+           document.getElementById('recent-activity-container').innerHTML = '<p style="color:#ff5e5e;">Error loading statistics data.</p>';
+        });
+    }
+
+    // Load immediately on page open
+    loadSecurityData();
+
+    // Auto-refresh the backend JSON data silently every 60 seconds
+    setInterval(loadSecurityData, 60000);
+  </script>
+
+  <!-- Chatbot -->
+  <button id="chatbot-toggle" aria-label="Open AI chat">
+    💬
+  </button>
+
+  <div id="chatbot-container">
+    <div id="chatbot-header">Chat with Jayden's AI</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type a message..." />
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <script src="js/chatbot.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/konami.js"></script>
+  <script src="js/interactions.js"></script>
+</body>
+</html>

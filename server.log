@@ -1,0 +1,29 @@
+nohup: ignoring input
+HF proxy listening on http://0.0.0.0:3000/api/chat
+→ POST /api/chat
+HF raw response: {
+  "id": "oNXk1ud-4YNCb4-9ab54235ff4422ef",
+  "object": "chat.completion",
+  "created": 1765291236,
+  "model": "Qwen/Qwen2.5-7B-Instruct-Turbo",
+  "prompt": [],
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "seed": 2189436709857528600,
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "role": "assistant",
+        "content": "Hello! How can I assist you today?",
+        "tool_calls": []
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 30,
+    "completion_tokens": 10,
+    "total_tokens": 40,
+    "cached_tokens": 0
+  }
+}

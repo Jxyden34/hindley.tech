@@ -1,0 +1,67 @@
+<!-- maintenance.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Under Maintenance | hindley.tech</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
+</head>
+
+<body>
+  <!-- Navigation (optional here but keeps the brand visible) -->
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-left">
+        <div class="nav-logo">JH</div>
+        <div class="nav-title">hindley.<span>tech</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="maintenance-wrapper">
+    <div class="maintenance-card">
+      <h1>We’ll be back soon</h1>
+      <p>hindley.tech is currently undergoing a small upgrade.</p>
+      <p>While the site is offline, the infrastructure behind it probably isn’t.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> hindley.tech</span>
+      <span>Temporarily offline, permanently tinkering.</span>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <button id="chatbot-toggle" aria-label="Open AI chat">
+    💬
+  </button>
+
+  <div id="chatbot-container">
+    <div id="chatbot-header">Chat with Jayden's AI</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type a message..." />
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <script src="js/chatbot.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
