@@ -24,7 +24,15 @@ app.use(express.static(projectRoot));
 app.get(/(.*)/, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-    const potentialHtml = path.join(projectRoot, req.path + '.html');
+    const relativeReqPath = req.path.replace(/^\/+/, '');
+    const potentialHtml = path.resolve(projectRoot, relativeReqPath + '.html');
+    const relToRoot = path.relative(projectRoot, potentialHtml);
+
+    // Prevent directory traversal: ensure resolved file remains under projectRoot
+    if (relToRoot.startsWith('..') || path.isAbsolute(relToRoot)) {
+      return res.status(403).end();
+    }
+
     return res.sendFile(potentialHtml, (err) => {
       if (err) {
         // If .html file doesn't exist, just 404 naturally or pass to next
