@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault(); // Prevent form submission until reCAPTCHA is verified
 
         grecaptcha.ready(() => {
-            grecaptcha.execute("6LcIIbYqAAAAAB-KH69ZwhSq_be6Ig6O_BDcY6Bt", { action: "submit" }).then((token) => {
+
                 recaptchaResponse.value = token; // Set the token value
                 form.submit(); // Submit the form
             });
