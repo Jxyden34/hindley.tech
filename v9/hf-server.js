@@ -3,11 +3,11 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+const { rateLimit } = require('express-rate-limit');
 const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+
 
 // Log every incoming request
 app.use((req, res, next) => {
@@ -20,12 +20,25 @@ const path = require('path');
 const projectRoot = path.join(__dirname, '..');
 app.use(express.static(projectRoot));
 
+// Rate limiter for the static-file fallback route (prevents abuse of file-system lookups)
+const staticFallbackLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
 // Fallback to try mapping extensionless URLs to .html files
-app.get(/(.*)/, (req, res, next) => {
+app.get(/(.*)/, staticFallbackLimiter, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-    const potentialHtml = path.join(projectRoot, req.path + '.html');
-    return res.sendFile(potentialHtml, (err) => {
+    // Strip any character that is not a safe path component to prevent path traversal
+    const safePath = req.path.replace(/[^/a-zA-Z0-9_-]/g, '');
+    if (!safePath || safePath !== req.path) {
+      return next();
+    }
+    const candidate = path.join(projectRoot, safePath + '.html');
+    return res.sendFile(candidate, (err) => {
       if (err) {
         // If .html file doesn't exist, just 404 naturally or pass to next
         next();
@@ -74,7 +87,7 @@ app.post('/api/chat', async (req, res) => {
       console.error('HF API error:', hfRes.status, errBody);
       return res
         .status(hfRes.status)
-        .json({ error: `HF error ${hfRes.status}: ${errBody}` });
+
     }
 
     const data = await hfRes.json();
@@ -90,7 +103,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({ reply });
   } catch (err) {
     console.error('Server error:', err);
-    res.status(500).json({ error: err.message });
+
   }
 });
 
