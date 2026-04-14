@@ -32,13 +32,7 @@ const staticFallbackLimiter = rateLimit({
 app.get(/(.*)/, staticFallbackLimiter, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-    // Strip any character that is not a safe path component to prevent path traversal
-    const safePath = req.path.replace(/[^/a-zA-Z0-9_-]/g, '');
-    if (!safePath || safePath !== req.path) {
-      return next();
-    }
-    const candidate = path.join(projectRoot, safePath + '.html');
-    return res.sendFile(candidate, (err) => {
+
       if (err) {
         // If .html file doesn't exist, just 404 naturally or pass to next
         next();
