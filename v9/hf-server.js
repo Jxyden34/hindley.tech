@@ -3,11 +3,11 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+const { rateLimit } = require('express-rate-limit');
 const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+
 
 // Log every incoming request
 app.use((req, res, next) => {
@@ -20,20 +20,19 @@ const path = require('path');
 const projectRoot = path.join(__dirname, '..');
 app.use(express.static(projectRoot));
 
+// Rate limiter for the static-file fallback route (prevents abuse of file-system lookups)
+const staticFallbackLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
 // Fallback to try mapping extensionless URLs to .html files
-app.get(/(.*)/, (req, res, next) => {
+app.get(/(.*)/, staticFallbackLimiter, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-    const relativeReqPath = req.path.replace(/^\/+/, '');
-    const potentialHtml = path.resolve(projectRoot, relativeReqPath + '.html');
-    const relToRoot = path.relative(projectRoot, potentialHtml);
 
-    // Prevent directory traversal: ensure resolved file remains under projectRoot
-    if (relToRoot.startsWith('..') || path.isAbsolute(relToRoot)) {
-      return res.status(403).end();
-    }
-
-    return res.sendFile(potentialHtml, (err) => {
       if (err) {
         // If .html file doesn't exist, just 404 naturally or pass to next
         next();
@@ -82,7 +81,7 @@ app.post('/api/chat', async (req, res) => {
       console.error('HF API error:', hfRes.status, errBody);
       return res
         .status(hfRes.status)
-        .json({ error: `HF error ${hfRes.status}: ${errBody}` });
+
     }
 
     const data = await hfRes.json();
@@ -98,7 +97,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({ reply });
   } catch (err) {
     console.error('Server error:', err);
-    res.status(500).json({ error: err.message });
+
   }
 });
 

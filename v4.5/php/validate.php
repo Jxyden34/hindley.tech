@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $secretKey = '6LcIIbYqAAAAAOUSxPiRWahyEM6FVR2mf6XJ6FCu'; // Replace with your reCAPTCHA secret key
+    $secretKey = getenv('RECAPTCHA_SECRET_KEY'); // Set via RECAPTCHA_SECRET_KEY environment variable
     $captcha = $_POST['recaptcha_response'];
     $url = 'https://www.google.com/recaptcha/api/siteverify';
 
