@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+const { rateLimit } = require('express-rate-limit');
 const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
@@ -19,12 +20,24 @@ const path = require('path');
 const projectRoot = path.join(__dirname, '..');
 app.use(express.static(projectRoot));
 
+// Rate limiter for the static-file fallback route (prevents abuse of file-system lookups)
+const staticFallbackLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
 // Fallback to try mapping extensionless URLs to .html files
-app.get(/(.*)/, (req, res, next) => {
+app.get(/(.*)/, staticFallbackLimiter, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-    const potentialHtml = path.join(projectRoot, req.path + '.html');
-    return res.sendFile(potentialHtml, (err) => {
+    // Sanitize: resolve the candidate path and ensure it stays within projectRoot
+    const candidate = path.resolve(projectRoot, '.' + req.path + '.html');
+    if (!candidate.startsWith(projectRoot + path.sep) && candidate !== projectRoot) {
+      return res.status(400).end();
+    }
+    return res.sendFile(candidate, (err) => {
       if (err) {
         // If .html file doesn't exist, just 404 naturally or pass to next
         next();
