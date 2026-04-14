@@ -7,7 +7,7 @@ const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
 const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',')
+  ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()).filter(Boolean)
   : ['https://hindley.tech'];
 app.use(cors({
   origin: (origin, callback) => {
@@ -15,7 +15,7 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(null, false);
     }
   }
 }));

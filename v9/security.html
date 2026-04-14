@@ -603,7 +603,7 @@
                             <div><strong>ISP:</strong> ${escHtml(item.isp || "Unknown")}</div>
                             <div><strong>Organization:</strong> ${escHtml(item.org || "Unknown")}</div>
                             <div><strong>Location:</strong> ${escHtml(item.city || "Unknown")}, ${escHtml(item.country || "Unknown")}</div>
-                            <div style="margin-top: 5px;"><a href="https://www.abuseipdb.com/check/${escHtml(item.ip)}" target="_blank" style="color: var(--accent); text-decoration: none;">View on AbuseIPDB ↗</a></div>
+                            <div style="margin-top: 5px;"><a href="https://www.abuseipdb.com/check/${encodeURIComponent(item.ip)}" target="_blank" style="color: var(--accent); text-decoration: none;">View on AbuseIPDB ↗</a></div>
                         </div>
                     </div>
                     `;
