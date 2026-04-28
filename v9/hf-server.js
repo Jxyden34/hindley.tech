@@ -8,6 +8,9 @@ const fetch = global.fetch; // Node.js v18+ built-in
 
 const app = express();
 
+app.disable('x-powered-by');
+app.use(express.json({ limit: '16kb' }));
+
 
 // Log every incoming request
 app.use((req, res, next) => {
@@ -32,12 +35,13 @@ const staticFallbackLimiter = rateLimit({
 app.get(/(.*)/, staticFallbackLimiter, (req, res, next) => {
   // If request has no extension and is not an API route
   if (!path.extname(req.path) && !req.path.startsWith('/api')) {
-
+    const filePath = path.join(projectRoot, `${req.path}.html`);
+    res.sendFile(filePath, (err) => {
       if (err) {
-        // If .html file doesn't exist, just 404 naturally or pass to next
         next();
       }
     });
+    return;
   }
   next();
 });
@@ -79,9 +83,7 @@ app.post('/api/chat', async (req, res) => {
     if (!hfRes.ok) {
       const errBody = await hfRes.text();
       console.error('HF API error:', hfRes.status, errBody);
-      return res
-        .status(hfRes.status)
-
+      return res.status(hfRes.status).json({ error: 'Upstream error' });
     }
 
     const data = await hfRes.json();
@@ -97,7 +99,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({ reply });
   } catch (err) {
     console.error('Server error:', err);
-
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
