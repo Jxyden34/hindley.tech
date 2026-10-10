@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const term = document.getElementById('terminal-overlay');
+    term.hidden = true;
+    term.setAttribute('role', 'region');
+    term.setAttribute('aria-label', 'Portfolio terminal');
+    let previousFocus;
     const input = document.getElementById('terminal-input');
     const output = document.getElementById('terminal-output');
     const body = document.getElementById('terminal-body');
@@ -35,18 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleTerminal() {
         isOpen = !isOpen;
         if (isOpen) {
+            previousFocus = document.activeElement;
+            term.hidden = false;
             term.classList.add('open');
             input.focus();
         } else {
             term.classList.remove('open');
-            input.blur();
+            term.hidden = true;
+            previousFocus?.focus();
         }
     }
 
     // Key listener for ~ (Backtick)
     document.addEventListener('keydown', (e) => {
         // Tilde/Backtick is usually the same key
-        if (e.key === '`' || e.key === '~') {
+        if ((e.key === '`' || e.key === '~') && !e.target.closest('input, textarea, select, [contenteditable="true"]')) {
             e.preventDefault();
             toggleTerminal();
         }
@@ -181,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'neofetch':
                 const asciiArt = `
         .---.
-       /     \\ 
+       /     \\
       |   JH  |    OS: HindleyOS v2.0
       |       |    Host: hindley.tech using Browser
        \\     /     Kernel: Web / HTML5
@@ -249,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function runHackSequence() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { print('Simulation complete. No real systems were accessed.', 'out-info'); return; }
         const steps = [
             { text: 'Initiating handshake...', time: 500, type: 'out-cmd' },
             { text: 'Connecting to server (Port 443)...', time: 1200, type: 'out-cmd' },
@@ -269,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Matrix Effect
     function toggleMatrix() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { print('Matrix animation is disabled while reduced motion is enabled.', 'out-info'); return; }
         if (matrixInterval) {
             clearInterval(matrixInterval);
             matrixCanvas.style.display = 'none';

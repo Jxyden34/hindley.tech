@@ -1,176 +1,84 @@
 <!-- index.html -->
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Jayden Hindley</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
-  <link rel="stylesheet" href="css/terminal.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home | Jayden Hindley</title>
+<link href="/css/style.css?v=20261010-design2" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/css/terminal.css?v=20261010-design2" rel="stylesheet"/>
+<link href="/css/design.css?v=20261010-design2" rel="stylesheet"/><meta content="Jayden Hindley builds reliable infrastructure, practical automation and monitoring tools. Explore hands-on projects and get in touch." name="description"/><link href="https://hindley.tech/" rel="canonical"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+<!-- Navigation -->
+<div class="nav-wrapper">
+<nav aria-label="Main navigation">
+<a aria-label="Jayden Hindley — home" class="nav-left" href="/">
+<div class="nav-logo">JH</div>
+<div class="nav-title">hindley.<span>tech</span></div>
+</a>
+<button aria-controls="main-nav-links" aria-expanded="false" class="nav-menu-button" type="button">Menu</button><ul class="nav-links" id="main-nav-links">
+<li><a aria-current="page" class="active" href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/skills">Skills</a></li>
+<li><a href="/project">Projects</a></li>
+<li><a href="/security">Security</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="grain-overlay"></div>
+<main id="main-content" tabindex="-1">
+<section class="hero"><div class="container"><div class="hero-grid">
+<div><p class="eyebrow">Jayden Hindley · Infrastructure &amp; automation</p>
+<h1 class="hero-heading">Reliable infrastructure.<br/><span>Practical automation.</span></h1>
+<p class="hero-subtitle">I build tools that make real IT environments easier to run: from HPC monitoring and backup pipelines to server automation and local AI.</p>
+<div class="hero-actions"><a class="btn" href="/project">View projects</a><a class="btn btn-outline" href="/contact">Contact me</a></div>
+<div class="hero-meta"><span><span aria-hidden="true" class="hero-dot"></span> Open to technical collaborations</span><span>Gomersal, UK</span></div></div>
+<aside class="profile-card"><div class="profile-inner"><div class="profile-photo"><img alt="Jayden Hindley" decoding="async" height="104" src="/images/ProfilePic.jpg" width="104"/></div><div class="profile-text"><h2>Jayden Hindley</h2><p>Digital Solutions Analyst</p><div class="profile-tags"><span class="profile-tag">Infrastructure</span><span class="profile-tag">Automation</span><span class="profile-tag">Cybersecurity</span></div></div></div><div class="profile-stats"><div class="profile-stat"><span class="profile-stat-label">Core tools</span><span class="profile-stat-value">Linux · PowerShell · Python</span></div><div class="profile-stat"><span class="profile-stat-label">Approach</span><span class="profile-stat-value">Resilient, maintainable systems</span></div></div><a class="text-link" href="/about">More about me →</a></aside>
+</div></div></section>
+<section class="featured-work"><div class="container"><div class="section-heading-row"><div><p class="eyebrow">Built for real environments</p><h2 class="section-title">Selected work</h2></div><a class="text-link" href="/project">All projects →</a></div><div class="featured-grid"><article class="featured-project"><a aria-label="Read the HPC Monitoring Dashboard case study" href="/projects/hpc-monitoring"><img alt="The HPC monitoring dashboard, showing machine status and operational controls." decoding="async" loading="lazy" src="/images/HPC.png"/></a><div class="featured-project-body"><span class="project-kind">Monitoring &amp; automation</span><h3>HPC Monitoring Dashboard</h3><p>A Flask dashboard that brings lab-machine availability, login activity and uptime into one view.</p><a class="text-link" href="/projects/hpc-monitoring">Read case study <span class="sr-only">: HPC Monitoring Dashboard</span> →</a></div></article><article class="featured-project"><a aria-label="Read the Burp Backup System case study" href="/projects/backup-automation"><img alt="Backup-run notifications, reporting progress and completion." decoding="async" loading="lazy" src="/images/backup.png"/></a><div class="featured-project-body"><span class="project-kind">Infrastructure &amp; recovery</span><h3>Burp Backup System</h3><p>Local and remote backup tiers with rotation, compression and Telegram updates.</p><a class="text-link" href="/projects/backup-automation">Read case study <span class="sr-only">: Burp Backup System</span> →</a></div></article><article class="featured-project"><a aria-label="Read the iDRAC Telegram Bot case study" href="/projects/idrac-automation"><img alt="The server-management integration used by the iDRAC Telegram bot." decoding="async" loading="lazy" src="/images/idrac.png"/></a><div class="featured-project-body"><span class="project-kind">Server management &amp; automation</span><h3>iDRAC Telegram Bot</h3><p>Dell server status, history and safe power actions through a Telegram bot.</p><a class="text-link" href="/projects/idrac-automation">Read case study <span class="sr-only">: iDRAC Telegram Bot</span> →</a></div></article></div></div></section>
+<section class="container"><div class="contact-invitation"><div><h2>Have a practical problem to solve?</h2><p>Let's talk about infrastructure, automation or your next technical project.</p></div><a class="btn btn-outline" href="/contact">Get in touch</a></div></section>
+</main>
+<footer>
+<div class="footer-inner">
+<span>© <span id="year"></span> hindley.tech</span>
 
-<body>
-  <!-- Navigation -->
-  <div class="nav-wrapper">
-    <nav>
-      <div class="nav-left">
-        <div class="nav-logo">JH</div>
-        <div class="nav-title">hindley.<span>tech</span></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/skills">Skills</a></li>
-        <li><a href="/project">Projects</a></li>
-        <li><a href="/security">Security</a></li>
-        <li><a href="/contact">Contact</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-
-  <div class="grain-overlay"></div>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <!-- Left: text -->
-          <div class="animate-fade-up" style="animation-delay: 0.1s;" data-reveal="fade-up">
-            <div class="chip-row">
-              <span class="chip">Digital Solutions Analyst Only Sometimes Never the same innit brosk
-
-              </span>
-              <span class="chip">Cybersecurity</span>
-              <span class="chip">Automation & Infrastructure</span>
-            </div>
-
-            <h1 class="hero-heading">
-              Hi, I'm <span>Jayden Hindley</span> – I build reliable, secure, automated systems.
-            </h1>
-
-            <p class="hero-subtitle">
-              I design and automate infrastructure that just quietly works: from HPC monitoring and backup
-              pipelines to self-healing lab tools and smart dashboards for real-world IT environments.
-            </p>
-
-            <div class="hero-actions">
-              <button class="btn" onclick="window.location.href='/project'">
-                Explore Projects
-              </button>
-              <button class="btn btn-outline" onclick="window.location.href='/about'">
-                Read About Me
-              </button>
-              <button class="btn btn-outline" onclick="window.location.href='/skills'">
-                View Skills
-              </button>
-            </div>
-
-            <div class="hero-meta">
-              <span><span class="hero-dot"></span> Available for collaborations & speaking</span>
-              <span>Based in Gomersal, UK</span>
-            </div>
-          </div>
-
-          <!-- Right: profile card -->
-          <div data-reveal="fade-left" style="perspective: 1000px;">
-            <aside class="profile-card tilt-card animate-fade-up" style="animation-delay: 0.3s;">
-              <div class="profile-inner">
-              <div class="profile-photo">
-                <img src="images/profpic.jpg" alt="Jayden Hindley" />
-              </div>
-              <div class="profile-text">
-                <h2>Jayden Hindley</h2>
-                <p>Digital Solutions Analyst · Cybersecurity Enthusiast</p>
-                <div class="profile-tags">
-                  <span class="profile-tag">Proxmox & Virtualisation</span>
-                  <span class="profile-tag">Automation & Scripting</span>
-                  <span class="profile-tag">Monitoring & Observability</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="profile-stats">
-              <div class="profile-stat">
-                <span class="profile-stat-label">Years in IT</span>
-                <span class="profile-stat-value">2+</span>
-              </div>
-              <div class="profile-stat">
-                <span class="profile-stat-label">Core Stack</span>
-                <span class="profile-stat-value">Linux · PowerShell · Python</span>
-              </div>
-              <div class="profile-stat">
-                <span class="profile-stat-label">Focus</span>
-                <span class="profile-stat-value">Security-first automation</span>
-              </div>
-            </div>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-highlights">
-      <div class="container">
-        <div class="highlights-grid animate-fade-up" style="animation-delay: 0.15s;">
-          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 1;">
-            <h3>Infrastructure that holds up</h3>
-            <p>From lab environments to virtualisation hosts, I build stable systems that are easy to maintain.</p>
-          </article>
-          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 2;">
-            <h3>Automation that saves time</h3>
-            <p>I turn repeatable manual tasks into scripts, dashboards, and bots that quietly reduce day-to-day toil.</p>
-          </article>
-          <article class="highlight-card" data-reveal="fade-up-stagger" style="--delay: 3;">
-            <h3>Security-first thinking</h3>
-            <p>Everything is designed with resilience, backups, and safe operational practices in mind from day one.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <span>© <span id="year"></span> hindley.tech</span>
-      <span>Built with coffee, containers & curiosity.</span>
-    </div>
-  </footer>
-
-  <script>
+<a class="text-link" href="/contact">Get in touch</a></div>
+</footer>
+<script>
     // simple year updater
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
-  <!-- Chatbot -->
-  <button id="chatbot-toggle" aria-label="Open AI chat">
+<!-- Chatbot -->
+<button aria-controls="chatbot-container" aria-expanded="false" aria-label="Open portfolio assistant" id="chatbot-toggle" type="button">
     💬
   </button>
+<div aria-labelledby="chatbot-title" hidden="" id="chatbot-container" role="region">
+<div id="chatbot-header"><h2 id="chatbot-title">Portfolio guide</h2><button aria-label="Close portfolio assistant" id="chatbot-close" type="button">×</button></div>
+<div aria-live="polite" aria-relevant="additions text" id="chatbot-messages" role="log">
+<p class="chat-intro">Hi! I can help you explore Jayden's projects, tools and experience. My answers come from this public portfolio.</p>
+<div class="chat-suggestions" id="chat-suggestions">
+<button data-chat-question="What projects has Jayden built?" type="button">Explore the projects</button>
+<button data-chat-question="What skills does Jayden use?" type="button">Find a skill</button>
+<button data-chat-question="How can I contact Jayden?" type="button">Get in touch</button>
+</div>
+</div>
+<div id="chatbot-input"><label class="sr-only" for="user-input">Ask about Jayden's portfolio</label><input autocomplete="off" id="user-input" maxlength="2000" placeholder="Ask about a project or skill…" type="text"/><button aria-label="Send question" id="send-btn" type="button">➤</button></div>
+<p class="chat-footer" id="chat-mode">Portfolio guide · answers from the public site.</p>
+</div>
+<script src="/js/chatbot.js?v=20261010-design2"></script>
+<script src="/js/terminal.js?v=20261010-design2"></script>
+<script src="/js/konami.js?v=20261010-design2"></script>
 
-  <div id="chatbot-container">
-    <div id="chatbot-header">Chat with Jayden's AI</div>
-    <div id="chatbot-messages"></div>
-    <div id="chatbot-input">
-      <input type="text" id="user-input" placeholder="Type a message..." />
-      <button id="send-btn">➤</button>
-    </div>
-  </div>
-
-  <script src="js/chatbot.js"></script>
-  <script src="js/terminal.js"></script>
-  <script src="js/konami.js"></script>
-  <script src="js/interactions.js"></script>
-</body>
-
+<script src="/js/common.js?v=20261010-design2"></script></body>
 </html>

@@ -54,6 +54,9 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  max-width: 100%;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .about-list li:hover {
@@ -100,9 +103,9 @@
   opacity: 0.9;
 }
 
-/* Revert list style for experience vs skills if needed? 
-   Actually, the user has lists in experience too. 
-   Let's check if we want those as chips. 
+/* Revert list style for experience vs skills if needed?
+   Actually, the user has lists in experience too.
+   Let's check if we want those as chips.
    Experience items (lines 91-100, 108-112) are sentences. Chips might look weird.
    Let's use a standard list for .exp-item .about-list
 */
@@ -223,7 +226,7 @@
   color: #a78bfa;
   border: 1px solid rgba(139, 92, 246, 0.2);
   /* Reset absolute sizing from old css */
-  position: static; 
+  position: static;
 }
 
 /* Make the content block below the badge */
@@ -278,11 +281,24 @@
 
 @media (max-width: 720px) {
   .about-rows {
-    grid-template-columns: minmax(0, 1fr);
+    gap: 1.2rem;
   }
 
   .timeline {
     padding-left: 1.8rem;
+  }
+
+  .exp-item {
+    padding-left: 0.9rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .exp-heading h3 {
+    font-size: 0.98rem;
+  }
+
+  .exp-item .about-list li {
+    font-size: 0.9rem;
   }
 }
 

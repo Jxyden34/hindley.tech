@@ -1,0 +1,73 @@
+<!-- index.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iDRAC Telegram Bot | Jayden Hindley</title>
+<link href="/css/style.css?v=20261010-design2" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/css/terminal.css?v=20261010-design2" rel="stylesheet"/>
+<link href="/css/design.css?v=20261010-design2" rel="stylesheet"/><meta content="Dell server status, history and safe power actions through a Telegram bot." name="description"/><link href="https://hindley.tech/projects/idrac-automation" rel="canonical"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+<!-- Navigation -->
+<div class="nav-wrapper">
+<nav aria-label="Main navigation">
+<a aria-label="Jayden Hindley — home" class="nav-left" href="/">
+<div class="nav-logo">JH</div>
+<div class="nav-title">hindley.<span>tech</span></div>
+</a>
+<button aria-controls="main-nav-links" aria-expanded="false" class="nav-menu-button" type="button">Menu</button><ul class="nav-links" id="main-nav-links">
+<li><a class="" href="/">Home</a></li>
+<li><a class="" href="/about">About</a></li>
+<li><a class="" href="/skills">Skills</a></li>
+<li><a aria-current="page" class="active" href="/project">Projects</a></li>
+<li><a class="" href="/security">Security</a></li>
+<li><a class="" href="/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="grain-overlay"></div>
+<main id="main-content" tabindex="-1"><article class="container case-study"><a class="text-link" href="/project">← All projects</a><p class="eyebrow">Server management &amp; automation</p><h1>iDRAC Telegram Bot</h1><p class="case-intro">Dell server status, history and safe power actions through a Telegram bot.</p><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Redfish</span><span class="project-tag">iDRAC</span></div><figure class="case-screenshot"><img alt="The server-management integration used by the iDRAC Telegram bot." decoding="async" src="/images/idrac.png"/><figcaption>The server-management integration used by the iDRAC Telegram bot.</figcaption></figure><div class="case-sections"><section><h2>The problem</h2><p>Managing physical servers sometimes requires access outside the operating system. Checking health and taking power actions should be available from a convenient interface.</p></section><section><h2>What I built</h2><p>I integrated Dell iDRAC with a Python Telegram bot using Redfish APIs, bringing server status, graphs, history and safe power actions into chat.</p></section><section><h2>What it enables</h2><p>The bot brings out-of-band server management into the same interface as status information. This project remains ongoing as the management workflow develops.</p></section></div><div class="contact-invitation"><div><h2>Working on something similar?</h2><p>Let's talk about the system, the workflow or the next step.</p></div><a class="btn" href="/contact?project=iDRAC%20Telegram%20Bot">Discuss this project</a></div></article></main>
+<footer>
+<div class="footer-inner">
+<span>© <span id="year"></span> hindley.tech</span>
+
+<a class="text-link" href="/contact">Get in touch</a></div>
+</footer>
+<script>
+    // simple year updater
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+<!-- Chatbot -->
+<button aria-controls="chatbot-container" aria-expanded="false" aria-label="Open portfolio assistant" id="chatbot-toggle" type="button">
+    💬
+  </button>
+<div aria-labelledby="chatbot-title" hidden="" id="chatbot-container" role="region">
+<div id="chatbot-header"><h2 id="chatbot-title">Portfolio guide</h2><button aria-label="Close portfolio assistant" id="chatbot-close" type="button">×</button></div>
+<div aria-live="polite" aria-relevant="additions text" id="chatbot-messages" role="log">
+<p class="chat-intro">Hi! I can help you explore Jayden's projects, tools and experience. My answers come from this public portfolio.</p>
+<div class="chat-suggestions" id="chat-suggestions">
+<button data-chat-question="What projects has Jayden built?" type="button">Explore the projects</button>
+<button data-chat-question="What skills does Jayden use?" type="button">Find a skill</button>
+<button data-chat-question="How can I contact Jayden?" type="button">Get in touch</button>
+</div>
+</div>
+<div id="chatbot-input"><label class="sr-only" for="user-input">Ask about Jayden's portfolio</label><input autocomplete="off" id="user-input" maxlength="2000" placeholder="Ask about a project or skill…" type="text"/><button aria-label="Send question" id="send-btn" type="button">➤</button></div>
+<p class="chat-footer" id="chat-mode">Portfolio guide · answers from the public site.</p>
+</div>
+<script src="/js/chatbot.js?v=20261010-design2"></script>
+<script src="/js/terminal.js?v=20261010-design2"></script>
+<script src="/js/konami.js?v=20261010-design2"></script>
+
+<script src="/js/common.js?v=20261010-design2"></script></body>
+</html>
