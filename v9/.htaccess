@@ -1,0 +1,37 @@
+RewriteEngine On
+
+# Proxy AI Chat endpoint directly to local Python service to bypass Cloudflare Port blocks
+RewriteRule ^api/chat$ http://127.0.0.1:5000/api/chat [P,L]
+
+# Redirect requests with .html to clean URLs
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+
+# Serve .html files without needing the extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^.]+)$ $1.html [NC,L]
+
+# Disable directory browsing
+Options -Indexes
+
+# Deny access to .htaccess file
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Add custom maintenance mode if maintenance.flag exists in the root directory
+RewriteCond %{DOCUMENT_ROOT}/maintenance.flag -f
+RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+RewriteCond %{REQUEST_URI} !\.(css|png|jpg|js|svg)$ [NC]
+RewriteCond %{REMOTE_ADDR} !^161\.112\.34\.5$
+RewriteCond %{HTTP:CF-Connecting-IP} !^161\.112\.34\.5$
+RewriteRule ^(.*)$ /maintenance.html [R=302,L]
+
+# Revalidate page content; versioned CSS and JS can retain normal caching.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

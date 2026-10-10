@@ -1,462 +1,428 @@
 <!-- project.html -->
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | Jayden Hindley</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/projects.css" />
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192.png">
-  <link rel="stylesheet" href="css/terminal.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | Jayden Hindley</title>
+<link href="/css/style.css?v=20261010-design2" rel="stylesheet"/>
+<link href="/css/projects.css?v=20261010-design2" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/favicon/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/css/terminal.css?v=20261010-design2" rel="stylesheet"/>
+<link href="/css/design.css?v=20261010-design2" rel="stylesheet"/><meta content="Hands-on projects by Jayden Hindley, including HPC monitoring, backup automation and server management." name="description"/><link href="https://hindley.tech/project" rel="canonical"/></head>
+<body><a class="skip-link" href="#main-content">Skip to content</a>
+<!-- Navigation -->
+<div class="nav-wrapper">
+<nav aria-label="Main navigation">
+<a aria-label="Jayden Hindley — home" class="nav-left" href="/">
+<div class="nav-logo">JH</div>
+<div class="nav-title">hindley.<span>tech</span></div>
+</a>
+<button aria-controls="main-nav-links" aria-expanded="false" class="nav-menu-button" type="button">Menu</button><ul class="nav-links" id="main-nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/skills">Skills</a></li>
+<li><a aria-current="page" class="active" href="/project">Projects</a></li>
+<li><a href="/security">Security</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+<div class="grain-overlay"></div>
+<main id="main-content" tabindex="-1">
+<section class="container">
+<div class="section-card" style="animation-delay: 0.1s;">
+<h1 class="section-title">Selected Projects</h1>
+<p class="section-subtitle">Infrastructure, automation and AI projects, with practical build notes for the three featured systems.</p>
+<div aria-label="Project filters" class="project-filters" role="group">
+<button aria-pressed="true" class="filter-btn active" data-filter="all" type="button">All</button>
+<button aria-pressed="false" class="filter-btn" data-filter="infrastructure" type="button">Infrastructure</button>
+<button aria-pressed="false" class="filter-btn" data-filter="automation" type="button">Automation</button>
+<button aria-pressed="false" class="filter-btn" data-filter="ai" type="button">AI</button>
+<button aria-pressed="false" class="filter-btn" data-filter="security" type="button">Security</button>
+</div><p class="project-count" id="project-count" role="status">Showing all 19 projects</p>
+<div class="grid grid-3" style="animation-delay: 0.2s;">
+<!-- Example project 1 -->
+<article class="project-card" data-category="infrastructure automation">
+<div class="project-thumb">
+<img alt="HPC Monitor" decoding="async" loading="lazy" src="/images/HPC.png"/>
+</div>
+<div class="project-body"><p class="featured-badge">Featured build</p>
+<div class="project-title-row">
+<h2 class="project-title">HPC Monitoring Dashboard</h2>
+<span class="project-meta">In use at Uni</span>
+</div>
+<p class="project-desc">A Flask dashboard that brings lab-machine availability, login activity and uptime into one view.</p>
+<div class="project-tags">
+<span class="project-tag">Python</span>
+<span class="project-tag">Flask</span>
+<span class="project-tag">Automation</span>
+</div>
+<a class="project-cta" href="/projects/hpc-monitoring">Read case study<span class="sr-only">: HPC Monitoring Dashboard</span> →</a></div>
+</article>
+<!-- Example project 2 -->
+<article class="project-card" data-category="infrastructure automation">
+<div class="project-thumb">
+<img alt="Backup Pipelines" decoding="async" loading="lazy" src="/images/backup.png"/>
+</div>
+<div class="project-body"><p class="featured-badge">Featured build</p>
+<div class="project-title-row">
+<h2 class="project-title">Burp Backup System</h2>
+<span class="project-meta">Personal Infrastructure</span>
+</div>
+<p class="project-desc">Local and remote backup tiers with rotation, compression and Telegram updates.</p>
+<div class="project-tags">
+<span class="project-tag">Bash</span>
+<span class="project-tag">Linux</span>
+<span class="project-tag">Backups</span>
+</div>
+<a class="project-cta" href="/projects/backup-automation">Read case study<span class="sr-only">: Burp Backup System</span> →</a></div>
+</article>
+<!-- Example project 3 -->
+<article class="project-card" data-category="automation security">
+<div class="project-thumb">
+<img alt="iDRAC Bot" decoding="async" loading="lazy" src="/images/idrac.png"/>
+</div>
+<div class="project-body"><p class="featured-badge">Featured build</p>
+<div class="project-title-row">
+<h2 class="project-title">iDRAC Telegram Bot</h2>
+<span class="project-meta">Ongoing</span>
+</div>
+<p class="project-desc">Dell server status, history and safe power actions through a Telegram bot.</p>
+<div class="project-tags">
+<span class="project-tag">Python</span>
+<span class="project-tag">APIs</span>
+<span class="project-tag">DevOps</span>
+</div>
+<a class="project-cta" href="/projects/idrac-automation">Read case study<span class="sr-only">: iDRAC Telegram Bot</span> →</a></div>
+</article>
+<!-- Example project 4 -->
+<article class="project-card" data-category="automation">
+<div class="project-thumb">
+<img alt="3D printing pipeline" decoding="async" loading="lazy" src="/images/stl.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">3D Printing Pipeline</h2>
+<span class="project-meta">Lab Automation</span>
+</div>
+<p class="project-desc">A watcher-driven workflow that takes STL files through slicing, uploads GCODE to OctoPrint, and reports print status through chat notifications.</p>
+<div class="project-tags">
+<span class="project-tag">Automation</span>
+<span class="project-tag">3D Printing</span>
+<span class="project-tag">Python</span>
+</div>
+<a class="project-cta" href="/contact?project=3D%20Printing%20Pipeline">Discuss this project<span class="sr-only">: 3D Printing Pipeline</span></a></div>
+</article>
+<!-- Example project 5 -->
+<article class="project-card" data-category="ai infrastructure">
+<div class="project-thumb">
+<img alt="Local AI" decoding="async" loading="lazy" src="/images/openwebui.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Local AI Stack</h2>
+<span class="project-meta">Experiment</span>
+</div>
+<p class="project-desc">A Docker-based local AI setup with GPU acceleration, custom endpoints, and integrations with existing tools and bots.</p>
+<div class="project-tags">
+<span class="project-tag">Docker</span>
+<span class="project-tag">GPU</span>
+<span class="project-tag">AI</span>
+</div>
+<a class="project-cta" href="/contact?project=Local%20AI%20Stack">Discuss this project<span class="sr-only">: Local AI Stack</span></a></div>
+</article>
+<!-- Example project 6 -->
+<article class="project-card" data-category="infrastructure">
+<div class="project-thumb">
+<img alt="Proxmox VE" decoding="async" loading="lazy" src="/images/proxmox.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Proxmox Virtual Environment</h2>
+<span class="project-meta">Virtualisation</span>
+</div>
+<p class="project-desc">A Proxmox environment with GPU passthrough, high-availability VMs and automated backups integrated into the wider lab.</p>
+<div class="project-tags">
+<span class="project-tag">Virtualisation</span>
+<span class="project-tag">GPU</span>
+<span class="project-tag">Proxmox</span>
+</div>
+<a class="project-cta" href="/contact?project=Proxmox%20Virtual%20Environment">Discuss this project<span class="sr-only">: Proxmox Virtual Environment</span></a></div>
+</article>
+<article class="project-card" data-category="infrastructure">
+<div class="project-thumb">
+<img alt="Arcade" decoding="async" loading="lazy" src="/images/arcade.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Arcade</h2>
+<span class="project-meta">Retro Gaming</span>
+</div>
+<p class="project-desc">A Raspberry Pi 4 arcade build running RetroPie, bringing classic games into a dedicated physical machine.</p>
+<div class="project-tags">
+<span class="project-tag">RetroPie</span>
+<span class="project-tag">Raspberry Pi</span>
+<span class="project-tag">Arcade</span>
+</div>
+<a class="project-cta" href="/contact?project=Arcade">Discuss this project<span class="sr-only">: Arcade</span></a></div>
+</article>
+<!-- Example project 6 -->
+<article class="project-card" data-category="ai">
+<div class="project-thumb">
+<img alt="ComfyWebUI" decoding="async" loading="lazy" src="/images/comfy.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Comfy WebUI</h2>
+<span class="project-meta">AI Text and Picture</span>
+</div>
+<p class="project-desc">A browser interface for building and running ComfyUI image-generation workflows, with visual control over models, prompts and generation steps.</p>
+<div class="project-tags">
+<span class="project-tag">AI Cluster</span>
+<span class="project-tag">GPU</span>
+<span class="project-tag">ComfyUI</span>
+</div>
+<a class="project-cta" href="/contact?project=Comfy%20WebUI">Discuss this project<span class="sr-only">: Comfy WebUI</span></a></div>
+</article>
+<!-- Example project 7 -->
+<article class="project-card" data-category="automation ai">
+<div class="project-thumb">
+<img alt="n8n" decoding="async" loading="lazy" src="/images/n8n.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">n8n AI Automation</h2>
+<span class="project-meta">AI Automation</span>
+</div>
+<p class="project-desc">Event-driven n8n workflows connecting custom triggers, APIs, bots and infrastructure services.</p>
+<div class="project-tags">
+<span class="project-tag">n8n</span>
+<span class="project-tag">AI</span>
+<span class="project-tag">Automation</span>
+</div>
+<a class="project-cta" href="/contact?project=n8n%20AI%20Automation">Discuss this project<span class="sr-only">: n8n AI Automation</span></a></div>
+</article>
+<!-- Example project 8 -->
+<article class="project-card" data-category="automation">
+<div class="project-thumb">
+<img alt="Portfolio" decoding="async" loading="lazy" src="/images/website.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">hindley.tech</h2>
+<span class="project-meta">This site</span>
+</div>
+<p class="project-desc">This portfolio: a place to document practical builds, explore tools and make it easier to get in touch.</p>
+<div class="project-tags">
+<span class="project-tag">Frontend</span>
+<span class="project-tag">Branding</span>
+<span class="project-tag">Personal</span>
+</div>
+<a class="project-cta" href="/contact?project=hindley.tech">Discuss this project<span class="sr-only">: hindley.tech</span></a></div>
+</article>
+<!-- Example project 8 -->
+<article class="project-card" data-category="infrastructure security">
+<div class="project-thumb">
+<img alt="Tailscale" decoding="async" loading="lazy" src="/images/ts.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Tailscale VPN</h2>
+<span class="project-meta">Personal VPN</span>
+</div>
+<p class="project-desc">A private mesh network connecting servers and services, with device routing, subnet sharing and access controls.</p>
+<div class="project-tags">
+<span class="project-tag">Bash</span>
+<span class="project-tag">Linux</span>
+<span class="project-tag">VPN</span>
+</div>
+<a class="project-cta" href="/contact?project=Tailscale%20VPN">Discuss this project<span class="sr-only">: Tailscale VPN</span></a></div>
+</article>
+<!-- Example project 9 -->
+<article class="project-card" data-category="automation ai">
+<div class="project-thumb">
+<img alt="NodeJS" decoding="async" loading="lazy" src="/images/bot.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">NodeJS MinecraftBot</h2>
+<span class="project-meta">Robot Coding</span>
+</div>
+<p class="project-desc">A Node.js Minecraft bot exploring autonomous behaviour, event handling, custom plugins and external API integrations.</p>
+<div class="project-tags">
+<span class="project-tag">Robot</span>
+<span class="project-tag">Minecraft</span>
+<span class="project-tag">AI</span>
+<span class="project-tag">Node.js</span>
+</div>
+<a class="project-cta" href="/contact?project=NodeJS%20MinecraftBot">Discuss this project<span class="sr-only">: NodeJS MinecraftBot</span></a></div>
+</article>
+<!-- Example project 10 -->
+<article class="project-card" data-category="ai">
+<div class="project-thumb">
+<img alt="AiCity" decoding="async" loading="lazy" src="/images/AiCity.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">AI City Building Game</h2>
+<span class="project-meta">Post-production</span>
+</div>
+<p class="project-desc">An AI-assisted city-building game exploring how intelligent agents can respond to player strategies and changes in the environment.</p>
+<div class="project-tags">
+<span class="project-tag">AI</span>
+<span class="project-tag">Website</span>
+<span class="project-tag">Game</span>
+</div>
+<a class="project-cta" href="/contact?project=AI%20City%20Building%20Game">Discuss this project<span class="sr-only">: AI City Building Game</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="infrastructure">
+<div class="project-thumb">
+<img alt="graphina" decoding="async" loading="lazy" src="/images/graphina.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Grafana</h2>
+<span class="project-meta">Data Visualization</span>
+</div>
+<p class="project-desc">Infrastructure dashboards using Grafana to bring metrics, graphs and monitoring information into a shared view.</p>
+<div class="project-tags">
+<span class="project-tag">Linux</span>
+<span class="project-tag">Docker</span>
+<span class="project-tag">Data Visualization</span>
+</div>
+<a class="project-cta" href="/contact?project=Grafana">Discuss this project<span class="sr-only">: Grafana</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="ai">
+<div class="project-thumb">
+<img alt="Ai Trader" decoding="async" loading="lazy" src="/images/Ai Trader.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Ai Trader</h2>
+<span class="project-meta">Trading</span>
+</div>
+<p class="project-desc">An experimental AI-assisted trading interface for exploring market data, signals and automated workflows.</p>
+<div class="project-tags">
+<span class="project-tag">Linux</span>
+<span class="project-tag">AI</span>
+<span class="project-tag">Trading</span>
+</div>
+<a class="project-cta" href="/contact?project=Ai%20Trader">Discuss this project<span class="sr-only">: Ai Trader</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="ai">
+<div class="project-thumb">
+<img alt="Local Ai Training" decoding="async" loading="lazy" src="/images/LocalAiTraining.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Local Ai Training</h2>
+<span class="project-meta">AI</span>
+</div>
+<p class="project-desc">A local model-training interface covering data preparation, training and evaluation workflows.</p>
+<div class="project-tags">
+<span class="project-tag">Linux</span>
+<span class="project-tag">AI</span>
+<span class="project-tag">Ai Training</span>
+</div>
+<a class="project-cta" href="/contact?project=Local%20Ai%20Training">Discuss this project<span class="sr-only">: Local Ai Training</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="security infrastructure">
+<div class="project-thumb">
+<img alt="Guac WebRDP" decoding="async" loading="lazy" src="/images/Guac WebRDP.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Guac WebRDP</h2>
+<span class="project-meta">Remote Access</span>
+</div>
+<p class="project-desc">A browser-based remote desktop gateway for RDP, VNC and SSH, providing clientless access to remote systems.</p>
+<div class="project-tags">
+<span class="project-tag">Remote Access</span>
+<span class="project-tag">WebRDP</span>
+<span class="project-tag">Access Control</span>
+</div>
+<a class="project-cta" href="/contact?project=Guac%20WebRDP">Discuss this project<span class="sr-only">: Guac WebRDP</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="ai">
+<div class="project-thumb">
+<img alt="Nebula NPM" decoding="async" loading="lazy" src="/images/NebulaNPM.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">Nebula NPM</h2>
+<span class="project-meta">Custom Ai Chat interface</span>
+</div>
+<p class="project-desc">A custom chat interface for exploring AI models and managing their dependencies.</p>
+<div class="project-tags">
+<span class="project-tag">Linux</span>
+<span class="project-tag">Docker</span>
+<span class="project-tag">AI interface</span>
+</div>
+<a class="project-cta" href="/contact?project=Nebula%20NPM">Discuss this project<span class="sr-only">: Nebula NPM</span></a></div>
+</article>
+<!-- Example project 11 -->
+<article class="project-card" data-category="security infrastructure">
+<div class="project-thumb">
+<img alt="motioneye" decoding="async" loading="lazy" src="/images/meye.png"/>
+</div>
+<div class="project-body">
+<div class="project-title-row">
+<h2 class="project-title">MotionEye</h2>
+<span class="project-meta">Surveillance</span>
+</div>
+<p class="project-desc">A lightweight camera-monitoring setup using MotionEye for video feeds, recording and motion notifications.</p>
+<div class="project-tags">
+<span class="project-tag">Linux</span>
+<span class="project-tag">Docker</span>
+<span class="project-tag">Surveillance</span>
+</div>
+<a class="project-cta" href="/contact?project=MotionEye">Discuss this project<span class="sr-only">: MotionEye</span></a></div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-inner">
+<span>© <span id="year"></span> hindley.tech</span>
 
-<body>
-  <!-- Navigation -->
-  <div class="nav-wrapper">
-    <nav>
-      <div class="nav-left">
-        <div class="nav-logo">JH</div>
-        <div class="nav-title">hindley.<span>tech</span></div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/skills">Skills</a></li>
-        <li><a href="/project" class="active">Projects</a></li>
-        <li><a href="/security">Security</a></li>
-        <li><a href="/contact">Contact</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-
-  <div class="grain-overlay"></div>
-
-  <main>
-    <section class="container">
-      <div class="section-card animate-fade-up" style="animation-delay: 0.1s;">
-        <h1 class="section-title">Selected Projects</h1>
-        <p class="section-subtitle">
-          A mix of infrastructure, automation, and “I wonder if I can make this do that?” experiments.
-        </p>
-
-        <div class="project-filters" aria-label="Project filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-          <button class="filter-btn" data-filter="automation">Automation</button>
-          <button class="filter-btn" data-filter="ai">AI</button>
-          <button class="filter-btn" data-filter="security">Security</button>
-        </div>
-
-        <div class="grid grid-3 animate-fade-up" style="animation-delay: 0.2s;">
-          <!-- Example project 1 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/HPC.png" alt="HPC Monitor" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">HPC Monitoring Dashboard</h3>
-                <span class="project-meta">In use at Uni</span>
-              </div>
-              <p class="project-desc">
-                Lightweight Flask app that pings lab machines, parses login logs, and exposes
-                real-time status and uptime data via a clean web UI.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">Flask</span>
-                <span class="project-tag">Automation</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 2 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/backup.png" alt="Backup Pipelines" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">3-2-1 Backup Pipeline</h3>
-                <span class="project-meta">Personal Infrastructure</span>
-              </div>
-              <p class="project-desc">
-                Bash + rsync + pigz scripts with rotation, Telegram notifications, and separate
-                local/remote tiers for resilient backups.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Bash</span>
-                <span class="project-tag">Linux</span>
-                <span class="project-tag">Backups</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 3 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/idrac.png" alt="iDRAC Bot" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">iDRAC Telegram Bot</h3>
-                <span class="project-meta">Ongoing</span>
-              </div>
-              <p class="project-desc">
-                Control Dell servers from Telegram with safe power actions, graphs,
-                and status history using Redfish APIs for out-of-band management.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">APIs</span>
-                <span class="project-tag">DevOps</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 4 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/stl.png" alt="3D printing pipeline" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">3D Printing Pipeline</h3>
-                <span class="project-meta">Lab Automation</span>
-              </div>
-              <p class="project-desc">
-                Automated STL to GCODE flow with watchers, slicers, OctoPrint upload, and
-                chat notifications for print status.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Automation</span>
-                <span class="project-tag">3D Printing</span>
-                <span class="project-tag">Python</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 5 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/openwebui.png" alt="Local AI" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Local AI Stack</h3>
-                <span class="project-meta">Experiment</span>
-              </div>
-              <p class="project-desc">
-                GPU-accelerated LocalAI deployments with Docker, P2P features, and custom endpoints
-                wired into existing tools and bots.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Docker</span>
-                <span class="project-tag">GPU</span>
-                <span class="project-tag">AI</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 6 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/proxmox.png" alt="Proxmox VE" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Proxmox Virtual Environment</h3>
-                <span class="project-meta">Virtualisation</span>
-              </div>
-              <p class="project-desc">
-                Proxmox VE virtualisation with GPU passthrough, high-availability VMs, and automated backups, tightly
-                integrated with existing systems and workflows. </p>
-              <div class="project-tags">
-                <span class="project-tag">Virtualisation</span>
-                <span class="project-tag">GPU</span>
-                <span class="project-tag">Proxmox</span>
-              </div>
-            </div>
-          </article>    
-             <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/arcade.png" alt="Arcade" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Arcade</h3>
-                <span class="project-meta">Retro Gaming</span>
-              </div>
-              <p class="project-desc">
-                Arcade is a retro gaming machine that lets you play classic arcade games from the 80s and 90s. It's built on a Raspberry Pi 4 and runs RetroPie, a free and open-source software that lets you play games from a variety of systems. </p>
-              <div class="project-tags">
-                <span class="project-tag">RetroPie</span>
-                <span class="project-tag">Raspberry Pi</span>
-                <span class="project-tag">Arcade</span>
-              </div>
-            </div>
-          </article> 
-          <!-- Example project 6 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/comfy.png" alt="ComfyWebUI" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Comfy WebUI</h3>
-                <span class="project-meta">AI Text and Picture</span>
-              </div>
-              <p class="project-desc">
-                Comfy WebUI is a browser-based interface for ComfyUI that lets you design and run Stable Diffusion workflows using visual node graphs. It gives you fine-grained control over models, prompts, and generation steps, making complex image pipelines clear, flexible, and easy to experiment with.</p>
-              <div class="project-tags">
-                <span class="project-tag">AI Cluster</span>
-                <span class="project-tag">GPU</span>
-                <span class="project-tag">ComfyUI</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 7 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/n8n.png" alt="n8n" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">n8n AI Automation</h3>
-                <span class="project-meta">AI Automation</span>
-              </div>
-              <p class="project-desc">
-                n8n automation workflows with custom triggers, API integrations, and event-driven logic, seamlessly
-                connected to existing systems, bots, and infrastructure. </p>
-              <div class="project-tags">
-                <span class="project-tag">n8n</span>
-                <span class="project-tag">AI</span>
-                <span class="project-tag">Automation</span>
-              </div>
-            </div>
-          </article>
-
-
-
-          <!-- Example project 8 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/website.png" alt="Portfolio" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">hindley.tech</h3>
-                <span class="project-meta">This site</span>
-              </div>
-              <p class="project-desc">
-                  My website is a personal hub where I showcase my projects, skills, and experiments. It acts as a living portfolio and playground, pulling together my work, ideas, and ways to get in touch in one place.
-
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Frontend</span>
-                <span class="project-tag">Branding</span>
-                <span class="project-tag">Personal</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 8 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/ts.png" alt="Tailscale" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Tailscale VPN</h3>
-                <span class="project-meta">Personal VPN</span>
-              </div>
-              <p class="project-desc">
-                Tailscale VPN mesh networking with secure device routing, subnet sharing, and lightweight access
-                controls,
-                seamlessly linking servers, services, and remote environments. </p>
-              <div class="project-tags">
-                <span class="project-tag">Bash</span>
-                <span class="project-tag">Linux</span>
-                <span class="project-tag">VPN</span>
-              </div>
-            </div>
-          </article>
-
-
-
-          <!-- Example project 9 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/bot.png" alt="NodeJS" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">NodeJS MinecraftBot</h3>
-                <span class="project-meta">Robot Coding</span>
-              </div>
-              <p class="project-desc">
-                NodeJS-powered Minecraft automation with autonomous behaviour, real-time event handling, and custom
-                plugins,
-                fully integrated with external APIs, tools, and control systems. </p>
-              <div class="project-tags">
-                <span class="project-tag">Robot</span>
-                <span class="project-tag">Minecraft</span>
-                <span class="project-tag">AI</span>
-                <span class="project-tag">Node.js</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 10 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/AiCity.png" alt="AiCity" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">AI City Building Game</h3>
-                <span class="project-meta">Post-production</span>
-              </div>
-              <p class="project-desc">
-                An AI-powered city-building game where players can design, manage, and expand their own virtual
-                metropolis with the help of intelligent agents that adapt to player strategies and environmental
-                changes.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">AI</span>
-                <span class="project-tag">Website</span>
-                <span class="project-tag">Game</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Example project 11 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/graphina.png" alt="graphina" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Graphina</h3>
-                <span class="project-meta">Data Visualisation</span>
-              </div>
-              <p class="project-desc">
-                Graphina is a modern dashboard framework for Grafana that makes building clean, interactive graphs fast and simple. It focuses on clear visuals, flexible layouts, and real-time data, turning raw metrics into dashboards that are easy to read and actually useful.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Grafana</span>
-                <span class="project-tag">Dashboard</span>
-                <span class="project-tag">Data Visualisation</span>
-              </div>
-            </div>
-          </article>
-          <!-- Example project 11 -->
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="images/meye.png" alt="motioneye" />
-            </div>
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">MotionEye</h3>
-                <span class="project-meta">Surveillance</span>
-              </div>
-              <p class="project-desc">
-                MotionEye is a free open-source software for video surveillance. It allows you to monitor multiple cameras, record video, and receive notifications when motion is detected. It is a lightweight and flexible solution that can be used for both home and business security.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Linux</span>
-                <span class="project-tag">Docker</span>
-                <span class="project-tag">Surveillance</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-
-
-  <footer>
-    <div class="footer-inner">
-      <span>© <span id="year"></span> hindley.tech</span>
-      <span>Built with coffee, containers & curiosity.</span>
-    </div>
-  </footer>
-
-  <!-- Chatbot -->
-  <button id="chatbot-toggle" aria-label="Open AI chat">
+<a class="text-link" href="/contact">Get in touch</a></div>
+</footer>
+<!-- Chatbot -->
+<button aria-controls="chatbot-container" aria-expanded="false" aria-label="Open portfolio assistant" id="chatbot-toggle" type="button">
     💬
   </button>
+<div aria-labelledby="chatbot-title" hidden="" id="chatbot-container" role="region">
+<div id="chatbot-header"><h2 id="chatbot-title">Portfolio guide</h2><button aria-label="Close portfolio assistant" id="chatbot-close" type="button">×</button></div>
+<div aria-live="polite" aria-relevant="additions text" id="chatbot-messages" role="log">
+<p class="chat-intro">Hi! I can help you explore Jayden's projects, tools and experience. My answers come from this public portfolio.</p>
+<div class="chat-suggestions" id="chat-suggestions">
+<button data-chat-question="What projects has Jayden built?" type="button">Explore the projects</button>
+<button data-chat-question="What skills does Jayden use?" type="button">Find a skill</button>
+<button data-chat-question="How can I contact Jayden?" type="button">Get in touch</button>
+</div>
+</div>
+<div id="chatbot-input"><label class="sr-only" for="user-input">Ask about Jayden's portfolio</label><input autocomplete="off" id="user-input" maxlength="2000" placeholder="Ask about a project or skill…" type="text"/><button aria-label="Send question" id="send-btn" type="button">➤</button></div>
+<p class="chat-footer" id="chat-mode">Portfolio guide · answers from the public site.</p>
+</div>
+<script src="/js/chatbot.js?v=20261010-design2"></script>
+<script src="/js/terminal.js?v=20261010-design2"></script>
+<script src="/js/konami.js?v=20261010-design2"></script>
 
-  <div id="chatbot-container">
-    <div id="chatbot-header">Chat with Jayden's AI</div>
-    <div id="chatbot-messages"></div>
-    <div id="chatbot-input">
-      <input type="text" id="user-input" placeholder="Type a message..." />
-      <button id="send-btn">➤</button>
-    </div>
-  </div>
-
-  <script src="js/chatbot.js"></script>
-  <script src="js/terminal.js"></script>
-  <script src="js/konami.js"></script>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const cards = [...document.querySelectorAll('.project-card')];
-    const buttons = [...document.querySelectorAll('.filter-btn')];
-
-    cards.forEach(card => {
-      const title = card.querySelector('.project-title')?.textContent?.trim() || 'project';
-      const body = card.querySelector('.project-body');
-      if (!body || body.querySelector('.project-cta')) return;
-
-      const a = document.createElement('a');
-      a.className = 'project-cta';
-      a.href = '/contact?project=' + encodeURIComponent(title);
-      a.textContent = 'Discuss this project';
-      body.appendChild(a);
-    });
-
-    function cardMatches(card, filter) {
-      if (filter === 'all') return true;
-      const text = (card.innerText || '').toLowerCase();
-      const rules = {
-        infrastructure: ['linux', 'proxmox', 'vpn', 'backup', 'grafana', 'docker', 'infrastructure'],
-        automation: ['automation', 'bot', 'pipeline', 'n8n', 'script', 'python', 'bash'],
-        ai: ['ai', 'ollama', 'comfy', 'gpu', 'local ai'],
-        security: ['security', 'idrac', 'redfish', 'surveillance', 'firewall', 'cyber']
-      };
-      return (rules[filter] || []).some(k => text.includes(k));
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        cards.forEach(card => {
-          card.style.display = cardMatches(card, filter) ? '' : 'none';
-        });
-      });
-    });
-  </script>
-</body>
-
+<script src="/js/projects.js?v=20261010-design2"></script><script src="/js/common.js?v=20261010-design2"></script></body>
 </html>
