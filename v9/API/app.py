@@ -2,6 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import re
+import json
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -32,6 +33,18 @@ def page_content(name):
 def answer(message):
     q = message.casefold()
     links = []
+    # Shared public profile facts keep career answers consistent with the About page.
+    if any(word in q for word in ('experience', 'career', 'education', 'about jayden', 'who is', 'job', 'role', 'qualification', 'certificate', 'certification', 'credential', 'apprentice', 'training', 'intune', 'stale profile', 'teams installation')):
+        profile = json.loads((SITE / 'profile.json').read_text(encoding='utf-8'))
+        if any(word in q for word in ('intune', 'stale profile', 'teams installation')):
+            reply = profile['education'][0]['details'][2]
+        elif any(word in q for word in ('qualification', 'certificate', 'certification', 'credential', 'training')):
+            reply = 'Jayden completed the BCS Level 4 DevOps Engineer Apprenticeship in September 2026 (overall Pass; professional discussion Distinction). His listed qualifications and training also include BCS data privacy, governance and policy in AI, CCSK v5 Plus, Microsoft AZ-400 training, and Cisco Computer Hardware and Introduction to Cybersecurity. The ISC2 Candidate entry expired in May 2025; it is candidate status. The About page has dates and available credential links.'
+        elif any(word in q for word in ('education', 'apprentice')):
+            reply = 'Jayden completed the Level 4 DevOps Engineer Apprenticeship with Firebrand Training, June 2025–September 2026: overall Pass, with a Distinction in the professional discussion. His assessment project automated stale-profile and legacy Teams remediation using PowerShell, Microsoft Intune and deployment pipelines. Earlier education includes T-level Computer Science at Leeds City College (2021–2023) and GCSE studies at BBG Academy (2016–2021).'
+        else:
+            reply = f"Jayden is a {profile['role']} at {profile['employer']} (since {profile['role_since']}). He was an Apprentice IT Technician there from August 2023 to July 2025, and previously volunteered in IT support. His work includes documentation, cybersecurity, monitoring, backups, remote support, PowerShell and Python automation, deployments, user training and asset management. Earlier experience includes Copy Concept retail work, Cub Scout volunteering and freelance penetration testing."
+        return reply, [{'href':'/about','label':'Explore experience and qualifications'},{'href':'/skills','label':'Browse professional skills'}]
     if any(word in q for word in ('contact','email','hire','collaborat','speaking','get in touch')):
         return "You can email Jayden at jayden@hindley.tech about infrastructure, automation or a technical project. The Contact page opens a draft in your email app so you can review and send it. The portfolio says he usually replies within 24–48 hours.", [{'href':'/contact','label':'Contact Jayden'}]
     if any(word in q for word in ('backup','burp','rsync','pigz','recovery')):
@@ -50,8 +63,6 @@ def answer(message):
             return f"{name}: {description}\n\nYou can explore the related work in the portfolio.", [{'href':related,'label':'Explore related work'},{'href':'/skills','label':'Browse skills'}]
     if any(word in q for word in ('security','fail2ban','honeypot','ban','threat')):
         return "The Security page shows recorded Fail2Ban bans and honeypot activity. Counts cover records retained by the collector, not a fixed 24-hour window. The page checks every 60 seconds; timestamps use Europe/London time and IP geolocation is approximate.", [{'href':'/security','label':'View the security dashboard'}]
-    if any(word in q for word in ('experience','career','education','university','about','who is','job')):
-        return "Jayden's portfolio focuses on infrastructure, scripting, monitoring, backups and cybersecurity. His About page covers experience at the University of Huddersfield, earlier customer-facing work, education and a Cisco cybersecurity course. Use that page for the published career details, or contact him to confirm current information.", [{'href':'/about','label':'Read about Jayden'},{'href':'/contact','label':'Contact Jayden'}]
     if any(word in q for word in (' ai','ai ','ollama','model','comfy','localai')):
         return "Jayden's AI projects include a local AI stack, ComfyUI workflows and n8n automation. This chat is a portfolio guide, so it answers from the public site rather than a generative AI model.", [{'href':'/project','label':'Explore AI projects'}]
     return "I'm a guide to Jayden's public portfolio. I can help with projects, skills, experience or contact details. Try asking about HPC monitoring, backup automation or the iDRAC bot. For details that aren't published here, contact Jayden directly.", [{'href':'/project','label':'Explore projects'},{'href':'/contact','label':'Contact Jayden'}]

@@ -57,4 +57,6 @@ Also consulted the skill's cross-platform translation and Designing for iOS for 
 
 ## Scope
 
-The update changes nine HTML shells and adds the shared `css/apple.css` layer after the existing layout styles. The portfolio guide, email-draft workflow, skill dialog, project filtering and telemetry collector remain functional. A fresh server backup precedes deployment, and assets use a new cache version. Career history is not revised without owner confirmation.
+The update changes nine HTML shells and adds the shared `css/apple.css` layer after the existing layout styles. The portfolio guide, email-draft workflow, skill dialog, project filtering and telemetry collector remain functional. A fresh server backup precedes deployment, and assets use a new cache version.
+
+At the owner's request, professional information was refreshed from his LinkedIn profile on 10 October 2026. `profile.json` contains only public professional facts: six roles, three education entries, seven qualifications/training entries, three courses, 45 distinct skills (46 profile entries with a duplicate SOLIDWORKS spelling merged), and two projects. The About page and portfolio guide now describe the Junior IT Technician role since July 2025. Overall apprenticeship Pass and professional-discussion Distinction are separate; expired ISC2 Candidate status is explicit; AZ-400 links to training and is not represented as DevOps Expert certification. Private analytics, recruiter-only preferences and account details were excluded.
