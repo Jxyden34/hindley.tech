@@ -4,7 +4,7 @@ The live portfolio is served from this `v9` directory's contents. The numbered d
 
 ## Site structure
 
-- The six main pages share `css/style.css`, the finishing layer `css/design.css`, `js/common.js` and the portfolio guide interface in `js/chatbot.js`.
+- The six main pages share `css/style.css`, the layout layer `css/design.css`, the Apple-inspired appearance in `css/apple.css`, `js/common.js` and the portfolio guide interface in `js/chatbot.js`.
 - `skills.html` uses native buttons and a native `<dialog>`. `js/skills.js` provides selection, dismissal and focus restoration.
 - `project.html` has explicit categories used by `js/projects.js`; the three featured case studies live in `projects/`.
 - Contact opens an email draft in the visitor's mail client. It does not claim to deliver a message directly from the website.
@@ -24,4 +24,4 @@ Styles and scripts are versioned in page URLs. HTML uses `Cache-Control: no-cach
 
 Check the live homepage and all navigation paths, the three case studies, the project filters and their announced counts, contact subject prefill, the guide's suggested questions, keyboard focus and Escape restoration on Skills, and the Security dashboard's live counts and Europe/London timestamp.
 
-The October 2026 update was checked on desktop, 390px and 320px layouts; the staged guide passed content and invalid-input checks. See `DESIGN.md` for the design roles, contrast calculations and layout rationale. Current job title and role dates require confirmation from the site owner before modifying the published career history.
+The October 2026 update was checked on desktop, 390px and 320px layouts; the staged guide passed content and invalid-input checks. See `APPLE-DESIGN.md` for the current visual system, contrast calculations and layout rationale; `DESIGN.md` records the earlier interaction repair. Current job title and role dates require confirmation from the site owner before modifying the published career history.
