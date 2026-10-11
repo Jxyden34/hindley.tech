@@ -1,0 +1,231 @@
+{
+  "name": "Jayden Hindley",
+  "pronouns": "He/Him",
+  "role": "Junior IT Technician",
+  "employer": "The University of Huddersfield",
+  "role_since": "Jul 2025",
+  "location": "Gomersal, England, United Kingdom",
+  "source": "https://www.linkedin.com/in/jaydenhindley/",
+  "reviewed": "2026-10-10",
+  "summary": [
+    "I'm a Junior IT Technician at the University of Huddersfield, working across technical support, secure infrastructure and automation. I enjoy turning complicated problems into reliable, documented systems.",
+    "My work includes PowerShell and Python scripting, remote support, monitoring, backups and recovery, access controls, asset management and technology deployments. I also help colleagues understand new systems through training and knowledge sharing.",
+    "I keep learning through workshops, webinars and independent study, with interests in cybersecurity, ethical hacking, network security, cloud computing, AI and the Internet of Things. Clear communication, teamwork and mentoring matter as much to me as the technology."
+  ],
+  "top_skills": [
+    "Security",
+    "Python",
+    "Teamwork",
+    "Communication",
+    "Linux"
+  ],
+  "experience": [
+    {
+      "title": "Junior IT Technician",
+      "organisation": "The University of Huddersfield",
+      "dates": "Jul 2025 – Present",
+      "location": "Huddersfield · On-site",
+      "details": [
+        "Document systems, procedures and infrastructure for onboarding and troubleshooting.",
+        "Support cybersecurity, access controls, data privacy, backups and recovery.",
+        "Monitor performance, investigate issues and provide secure remote support.",
+        "Build PowerShell and Python automation; support deployments, compatibility testing and user training.",
+        "Coordinate hardware and software sourcing, warranty renewals, inventory audits and equipment planning.",
+        "Contribute to technology workshops, seminars and cybersecurity awareness."
+      ]
+    },
+    {
+      "title": "Apprentice IT Technician",
+      "organisation": "The University of Huddersfield",
+      "dates": "Aug 2023 – Jul 2025",
+      "location": "Huddersfield · On-site",
+      "details": [
+        "Supported systems documentation, cybersecurity, backups, monitoring and remote troubleshooting.",
+        "Worked on PowerShell and Python scripts, technology integration and user training.",
+        "Helped with vendor coordination, asset audits and technology workshops."
+      ]
+    },
+    {
+      "title": "Sales Attendant",
+      "organisation": "Copy Concept Limited",
+      "dates": "Jun 2021 – May 2023",
+      "location": "England · Part-time · On-site",
+      "details": [
+        "Provided customer service and product recommendations, managed stock and inventory, and supported visual merchandising and teamwork."
+      ]
+    },
+    {
+      "title": "Junior IT Technician (Voluntary)",
+      "organisation": "The University of Huddersfield",
+      "dates": "May 2022 – Feb 2023",
+      "location": "Huddersfield · Internship · On-site",
+      "details": [
+        "Supported documentation, security, backups, monitoring, remote support and technology integration.",
+        "Contributed to scripting, vendor coordination, inventory management and user training."
+      ]
+    },
+    {
+      "title": "Cub Scout Helper (Voluntary)",
+      "organisation": "7th Spen Valley",
+      "dates": "Sep 2020 – Feb 2023",
+      "location": "Gomersal · Part-time · On-site",
+      "details": [
+        "Mentored young scouts and supported leadership, outdoor, first-aid and environmental activities.",
+        "Helped organise events, camping and community service, with parent communication and record keeping."
+      ]
+    },
+    {
+      "title": "Cyber Security Penetration Tester",
+      "organisation": "Freelance",
+      "dates": "2021",
+      "location": "On-site",
+      "details": [
+        "Worked with a team to assess internal and external network defences, including social engineering and phishing simulations.",
+        "Reviewed password and access policies, supported multi-factor authentication, and assessed wireless encryption and security improvements."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "title": "Level 4 DevOps Engineer Apprenticeship",
+      "organisation": "Firebrand Training",
+      "dates": "Jun 2025 – Sep 2026",
+      "result": "Pass",
+      "details": [
+        "Completed the BCS Level 4 DevOps Engineer Apprenticeship while working at the University of Huddersfield.",
+        "Developed skills in automation, scripting, CI/CD, infrastructure, security, testing and monitoring, using PowerShell, Bash and Python.",
+        "End-Point Assessment: built an automated PowerShell solution using Microsoft Intune and deployment pipelines to identify stale user profiles and remove legacy Microsoft Teams installations. Work included scheduled remediation, testing, pilot deployment and compliance monitoring.",
+        "Professional discussion: Distinction. Also covered root cause analysis and incident postmortems."
+      ]
+    },
+    {
+      "title": "T-level Computer Science",
+      "organisation": "Leeds City College",
+      "dates": "Sep 2021 – May 2023",
+      "details": []
+    },
+    {
+      "title": "GCSE studies",
+      "organisation": "BBG Academy",
+      "dates": "Sep 2016 – May 2021",
+      "details": []
+    }
+  ],
+  "credentials": [
+    {
+      "title": "BCS Level 4 DevOps Engineer Apprenticeship",
+      "issuer": "BCS, The Chartered Institute for IT",
+      "date": "Sep 2026"
+    },
+    {
+      "title": "Data privacy, governance, and policy in AI",
+      "issuer": "BCS, The Chartered Institute for IT",
+      "date": "Oct 2026",
+      "url": "https://www.bcs.org/validate-your-digital-badge/?credential=f9f211ff-de23-4560-9e54-a689f85bd4b6"
+    },
+    {
+      "title": "CCSK v5 Plus",
+      "issuer": "ccsk",
+      "date": "Nov 2025"
+    },
+    {
+      "title": "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+      "issuer": "Microsoft",
+      "date": "Jul 2025",
+      "note": "Listed training; linked learning path.",
+      "url": "https://learn.microsoft.com/en-us/training/paths/az-400-implement-continuous-feedback/"
+    },
+    {
+      "title": "ISC2 Candidate",
+      "issuer": "ISC2",
+      "date": "May 2024",
+      "note": "Expired May 2025 · Candidate status",
+      "url": "https://www.credly.com/badges/24c1fdd3-5d03-486e-ad43-b7b6bd349e6e"
+    },
+    {
+      "title": "Computer Hardware",
+      "issuer": "Cisco",
+      "date": "Jan 2024",
+      "url": "https://www.credly.com/earner/earned/badge/160c5744-c4e7-41be-a2a9-ee44f683c093"
+    },
+    {
+      "title": "Introduction to Cybersecurity",
+      "issuer": "Cisco",
+      "date": "Apr 2024",
+      "url": "https://www.credly.com/badges/fb65bf5c-85de-481f-980b-dc7144d916f2"
+    }
+  ],
+  "courses": [
+    {
+      "title": "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+      "association": "The University of Huddersfield"
+    },
+    {
+      "title": "Level 4 DevOps Apprenticeship",
+      "association": "The University of Huddersfield"
+    },
+    {
+      "title": "T Level Digital and IT",
+      "association": "Leeds City College"
+    }
+  ],
+  "profile_projects": [
+    {
+      "title": "Hindley.tech",
+      "dates": "Nov 2024 – Present",
+      "description": "My portfolio for technical projects and interests."
+    },
+    {
+      "title": "LCC Website",
+      "dates": "Jul 2021 – Jul 2022",
+      "description": "A website project associated with Leeds City College, with contributors Dylan and Joshua."
+    }
+  ],
+  "skills": [
+    "Root Cause Analysis",
+    "Security Testing Automated Testing",
+    "DevOps",
+    "Automation",
+    "Automated Software Testing",
+    "Infrastructure as code (IaC)",
+    "Version Control",
+    "Continuous Integration and Continuous Delivery (CI/CD)",
+    "Continuous Improvement Version Control",
+    "Information Technology Infrastructure",
+    "Cyber Security Risk",
+    "Technical Support",
+    "SOLIDWORKS",
+    "AutoCAD",
+    "Ansys Products",
+    "Microsoft Intune",
+    "Web Services",
+    "Windows 11",
+    "PowerShell",
+    "Windows 10",
+    "Microsoft Endpoint Configuration Manager",
+    "Software Installation",
+    "Information Security",
+    "Microsoft Office",
+    "Front-End Development",
+    "Security",
+    "Linux",
+    "Nmap",
+    "Penetration Testing",
+    "Cybersecurity",
+    "Accessibility",
+    "English",
+    "Communication",
+    "Problem Solving",
+    "Python (Programming Language)",
+    "Cascading Style Sheets (CSS)",
+    "HTML",
+    "Accounting",
+    "Retail",
+    "Microsoft PowerPoint",
+    "Teamwork",
+    "Finance",
+    "Team Leadership",
+    "Leadership",
+    "Leader"
+  ]
+}
