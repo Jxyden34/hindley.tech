@@ -14,8 +14,8 @@
 <link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="/css/terminal.css?v=20261010-profile1" rel="stylesheet"/>
-<link href="/css/design.css?v=20261010-profile1" rel="stylesheet"/><meta content="Jayden Hindley builds reliable infrastructure, practical automation and monitoring tools. Explore hands-on projects and get in touch." name="description"/><link href="https://hindley.tech/" rel="canonical"/><link href="/css/apple.css?v=20261010-profile1" rel="stylesheet"/><link href="/css/studio.css?v=20261027-1" rel="stylesheet"/></head>
-<body><a class="skip-link" href="#main-content">Skip to content</a>
+<link href="/css/design.css?v=20261010-profile1" rel="stylesheet"/><meta content="Jayden Hindley builds reliable infrastructure, practical automation and monitoring tools. Explore hands-on projects and get in touch." name="description"/><link href="https://hindley.tech/" rel="canonical"/><link href="/css/apple.css?v=20261010-profile1" rel="stylesheet"/><link href="/css/studio.css?v=20261027-2" rel="stylesheet"/></head>
+<body class="studio-page"><a class="skip-link" href="#main-content">Skip to content</a>
 <!-- Navigation -->
 <div class="nav-wrapper">
 <nav aria-label="Main navigation">
@@ -37,12 +37,12 @@
 <main id="main-content" tabindex="-1">
 <section aria-labelledby="home-title" class="studio-hero">
 <div class="studio-hero-inner"><div class="studio-intro">
-<p class="studio-kicker"><span aria-hidden="true">✳</span> JAYDEN HINDLEY / INDEPENDENT BUILDER</p>
-<h1 id="home-title">Making complex<br/><em>work beautifully.</em></h1>
-<p class="studio-lead">I build useful things at the intersection of infrastructure, automation and AI — from the first idea to the systems that keep it running.</p>
-<div class="studio-actions"><a class="studio-button" href="/project">Explore the projects <span aria-hidden="true">↗</span></a><a class="studio-link" href="/about">A little about me <span aria-hidden="true">→</span></a></div>
-</div><div class="system-art" aria-hidden="true"><div class="art-top"><span>JH / SYSTEMS INDEX</span><span>001 — 003</span></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-core">JH<span>HINDLEY.TECH</span></div><span class="art-node node-one">INFRASTRUCTURE</span><span class="art-node node-two">AUTOMATION</span><span class="art-node node-three">LOCAL AI</span><div class="art-bottom"><span>BUILT WITH PURPOSE</span><span>✳</span></div></div></div>
-<div class="studio-ticker" aria-label="Areas of work">LINUX &amp; INFRASTRUCTURE <span>✳</span> AUTOMATION <span>✳</span> LOCAL AI <span>✳</span> BUILDING &amp; LEARNING</div>
+<p class="studio-kicker">JAYDEN HINDLEY &nbsp; / &nbsp; INFRASTRUCTURE · AUTOMATION · AI</p>
+<h1 id="home-title">Built with<br/><em>intent.</em></h1>
+<p class="studio-lead">Hi, I'm Jayden. I like turning tricky problems into useful systems — and sharing what I learn along the way.</p>
+<div class="studio-actions"><a class="studio-button" href="/project">Explore the work <span aria-hidden="true">↗</span></a><button class="studio-link studio-guide" type="button" id="hero-guide">Ask about my work <span aria-hidden="true">→</span></button></div>
+</div><div class="hero-art" aria-hidden="true"><div class="hero-art-ring"></div><div class="hero-art-inner"></div><span>JH</span></div></div>
+<div class="studio-ticker"><span>INDEPENDENT PROJECTS &amp; PRACTICAL ENGINEERING</span><span>SCROLL TO EXPLORE ↓</span></div>
 </section>
 <section class="studio-projects" aria-labelledby="studio-projects-title"><div class="container"><div class="studio-section-heading"><div><p class="studio-label">SELECTED WORK / 01—03</p><h2 id="studio-projects-title">Things I've built<span>.</span></h2></div><a href="/project">View all projects ↗</a></div>
 <div class="studio-project-grid"><article class="studio-project studio-engram"><div class="studio-project-number">01 / AI &amp; KNOWLEDGE</div><div class="studio-symbol" aria-hidden="true">E<span>•</span></div><div><h3>Engram</h3><p>A self-hosted home for knowledge and AI context.</p><a href="https://github.com/Jxyden34/Engram">Explore Engram ↗</a></div></article>
@@ -66,6 +66,7 @@
 <script>
     // simple year updater
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('hero-guide').addEventListener('click', () => document.getElementById('chatbot-toggle').click());
   </script>
 <!-- Chatbot -->
 <button aria-controls="chatbot-container" aria-expanded="false" aria-label="Open portfolio assistant" id="chatbot-toggle" type="button">Portfolio guide</button>
