@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     el.className = `message ${sender}`;
     el.textContent = text;
     for (const link of links) {
-      if (!/^\/(?:about|skills|project|security|contact|projects\/[a-z-]+)$/.test(link.href)) continue;
+      if (!/^\/(?:about|skills|project|contact|projects\/[a-z-]+)$/.test(link.href)) continue;
       const a = document.createElement('a');
       a.href = link.href;
       a.textContent = link.label;
