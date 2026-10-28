@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# The security dashboard is no longer part of the public portfolio.
+RewriteRule ^security(?:\.html)?/?$ /project [R=302,L,NC]
+
 # Proxy AI Chat endpoint directly to local Python service to bypass Cloudflare Port blocks
 RewriteRule ^api/chat$ http://127.0.0.1:5000/api/chat [P,L]
 

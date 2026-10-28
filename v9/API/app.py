@@ -62,7 +62,7 @@ def answer(message):
         if re.search(r'(?<!\w)' + re.escape(name.casefold()) + r'(?!\w)', q):
             return f"{name}: {description}\n\nYou can explore the related work in the portfolio.", [{'href':related,'label':'Explore related work'},{'href':'/skills','label':'Browse skills'}]
     if any(word in q for word in ('security','fail2ban','honeypot','ban','threat')):
-        return "The Security page shows recorded Fail2Ban bans and honeypot activity. Counts cover records retained by the collector, not a fixed 24-hour window. The page checks every 60 seconds; timestamps use Europe/London time and IP geolocation is approximate.", [{'href':'/security','label':'View the security dashboard'}]
+        return "Jayden's work includes security, networking and system administration. Explore the skills page for the tools he uses.", [{'href':'/skills','label':'Explore security and networking skills'}]
     if any(word in q for word in (' ai','ai ','ollama','model','comfy','localai')):
         return "Jayden's AI projects include a local AI stack, ComfyUI workflows and n8n automation. This chat is a portfolio guide, so it answers from the public site rather than a generative AI model.", [{'href':'/project','label':'Explore AI projects'}]
     return "I'm a guide to Jayden's public portfolio. I can help with projects, skills, experience or contact details. Try asking about HPC monitoring, backup automation or the iDRAC bot. For details that aren't published here, contact Jayden directly.", [{'href':'/project','label':'Explore projects'},{'href':'/contact','label':'Contact Jayden'}]
