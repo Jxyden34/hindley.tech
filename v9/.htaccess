@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Keep the previous CV link useful while serving the current public CV.
+RewriteRule ^Files/Jayden_Hindley_CV\.docx$ /Files/Jayden_Hindley_CV.pdf [R=302,L]
+
 # The security dashboard is no longer part of the public portfolio.
 RewriteRule ^security(?:\.html)?/?$ /project [R=302,L,NC]
 

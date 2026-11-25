@@ -1,5 +1,7 @@
 # Apple-inspired portfolio direction
 
+Current hiring-focused changes are documented in `../HIRING-REVIEW.md` (25 November 2026). They preserve the later editorial identity while adding direct contact/CV access, six case studies, concrete project scope and a skills evidence matrix. The paragraphs below describe the earlier October redesign; their release-specific counts and palette are historical. The current public profile has six qualification/training entries, with expired ISC2 Candidate status separately labelled Earlier learning.
+
 This is a web portfolio for people evaluating Jayden's infrastructure and automation work. Its job is to make the actual systems easy to explore. Apple's website supplies the composition: compact navigation, a centered statement, large imagery and a small number of blue actions. The HIG foundations apply as web principles; native iOS navigation and window conventions do not.
 
 ## Review and thesis
