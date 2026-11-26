@@ -87,18 +87,6 @@
   ],
   "education": [
     {
-      "title": "Level 4 DevOps Engineer Apprenticeship",
-      "organisation": "Firebrand Training",
-      "dates": "Jun 2025 – Sep 2026",
-      "result": "Pass",
-      "details": [
-        "Completed the BCS Level 4 DevOps Engineer Apprenticeship while working at the University of Huddersfield.",
-        "Developed skills in automation, scripting, CI/CD, infrastructure, security, testing and monitoring, using PowerShell, Bash and Python.",
-        "End-Point Assessment: built an automated PowerShell solution using Microsoft Intune and deployment pipelines to identify stale user profiles and remove legacy Microsoft Teams installations. Work included scheduled remediation, testing, pilot deployment and compliance monitoring.",
-        "Professional discussion: Distinction. Also covered root cause analysis and incident postmortems."
-      ]
-    },
-    {
       "title": "T-level Computer Science",
       "organisation": "Leeds City College",
       "dates": "Sep 2021 – May 2023",
@@ -115,7 +103,15 @@
     {
       "title": "BCS Level 4 DevOps Engineer Apprenticeship",
       "issuer": "BCS, The Chartered Institute for IT",
-      "date": "Sep 2026"
+      "date": "Sep 2026",
+      "result": "Overall Pass; professional discussion Distinction",
+      "dates": "Jun 2025 – Sep 2026",
+      "details": [
+        "Completed the BCS Level 4 DevOps Engineer Apprenticeship while working at the University of Huddersfield.",
+        "Developed skills in automation, scripting, CI/CD, infrastructure, security, testing and monitoring, using PowerShell, Bash and Python.",
+        "End-Point Assessment: built an automated PowerShell solution using Microsoft Intune and deployment pipelines to identify stale user profiles and remove legacy Microsoft Teams installations. Work included scheduled remediation, testing, pilot deployment and compliance monitoring.",
+        "Professional discussion: Distinction. Also covered root cause analysis and incident postmortems."
+      ]
     },
     {
       "title": "Data privacy, governance, and policy in AI",
@@ -136,13 +132,6 @@
       "url": "https://learn.microsoft.com/en-us/training/paths/az-400-implement-continuous-feedback/"
     },
     {
-      "title": "ISC2 Candidate",
-      "issuer": "ISC2",
-      "date": "May 2024",
-      "note": "Expired May 2025 · Candidate status",
-      "url": "https://www.credly.com/badges/24c1fdd3-5d03-486e-ad43-b7b6bd349e6e"
-    },
-    {
       "title": "Computer Hardware",
       "issuer": "Cisco",
       "date": "Jan 2024",
@@ -155,20 +144,7 @@
       "url": "https://www.credly.com/badges/fb65bf5c-85de-481f-980b-dc7144d916f2"
     }
   ],
-  "courses": [
-    {
-      "title": "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
-      "association": "The University of Huddersfield"
-    },
-    {
-      "title": "Level 4 DevOps Apprenticeship",
-      "association": "The University of Huddersfield"
-    },
-    {
-      "title": "T Level Digital and IT",
-      "association": "Leeds City College"
-    }
-  ],
+  "courses": [],
   "profile_projects": [
     {
       "title": "Hindley.tech",
@@ -227,5 +203,15 @@
     "Team Leadership",
     "Leadership",
     "Leader"
-  ]
+  ],
+  "earlier_learning": [
+    {
+      "title": "ISC2 Candidate",
+      "issuer": "ISC2",
+      "date": "May 2024",
+      "note": "Expired May 2025 · Candidate status",
+      "url": "https://www.credly.com/badges/24c1fdd3-5d03-486e-ad43-b7b6bd349e6e"
+    }
+  ],
+  "content_reviewed": "2026-11-25"
 }

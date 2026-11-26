@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const description = document.getElementById('modal-desc');
   const related = document.getElementById('skill-related');
   let opener;
-  document.querySelectorAll('.skill-button').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('button.skill-button').forEach(button => button.addEventListener('click', () => {
     opener = button;
     title.textContent = button.dataset.name;
     description.textContent = button.dataset.description;

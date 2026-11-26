@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     count.textContent = filter === 'all' ? `Showing all ${visible} projects` : `Showing ${visible} ${filter === 'ai' ? 'AI' : filter} projects`;
   }
-  buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.filter)));
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    select(filter);
+    const url = new URL(location.href);
+    if (filter === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', filter);
+    history.pushState(null, '', url);
+  }));
+  window.addEventListener('popstate', () => select(new URLSearchParams(location.search).get('category') || 'all'));
   select(new URLSearchParams(location.search).get('category') || 'all');
 });

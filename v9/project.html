@@ -15,7 +15,7 @@
 <link href="/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="/favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="/css/terminal.css?v=20261010-profile1" rel="stylesheet"/>
-<link href="/css/design.css?v=20261010-profile1" rel="stylesheet"/><meta content="Hands-on projects by Jayden Hindley, including HPC monitoring, backup automation and server management." name="description"/><link href="https://hindley.tech/project" rel="canonical"/><link href="/css/apple.css?v=20261010-profile1" rel="stylesheet"/><link href="/css/interior.css?v=20261027-1" rel="stylesheet"/></head>
+<link href="/css/design.css?v=20261010-profile1" rel="stylesheet"/><meta content="Hands-on projects by Jayden Hindley, including HPC monitoring, backup automation and server management." name="description"/><link href="https://hindley.tech/project" rel="canonical"/><link href="/css/apple.css?v=20261010-profile1" rel="stylesheet"/><link href="/css/interior.css?v=20261027-1" rel="stylesheet"/><link href="/css/hiring.css?v=20261125-2" rel="stylesheet"/></head>
 <body class="interior-page"><a class="skip-link" href="#main-content">Skip to content</a>
 <!-- Navigation -->
 <div class="nav-wrapper">
@@ -29,9 +29,8 @@
 <li><a href="/about">About</a></li>
 <li><a href="/skills">Skills</a></li>
 <li><a aria-current="page" class="active" href="/project">Projects</a></li>
-
 <li><a href="/contact">Contact</a></li>
-</ul>
+<li><a class="nav-cv" download="Jayden_Hindley_CV.pdf" href="/Files/Jayden_Hindley_CV.pdf">Download CV <span class="sr-only">(PDF)</span></a></li><li><a aria-label="Email Jayden at jayden@hindley.tech" href="mailto:jayden@hindley.tech">Email</a></li></ul>
 </nav>
 </div>
 <div class="grain-overlay"></div>
@@ -39,34 +38,33 @@
 <section class="container">
 <div class="section-card" style="animation-delay: 0.1s;">
 <h1 class="section-title">Selected Projects</h1>
-<p class="section-subtitle">Infrastructure, automation and AI projects, with practical build notes for the three featured systems.</p>
-<figure class="interior-banner"><img src="/images/projects-illustration.png" alt=""/><figcaption>AI-generated illustration</figcaption></figure>
-<div aria-label="Project filters" class="project-filters" role="group">
+<p class="section-subtitle">Start with six project stories, then explore the wider lab and software work. Each entry describes what it does and where the evidence stops.</p>
+<section aria-labelledby="hiring-guide-title" class="hiring-guide hiring-block"><p class="hiring-kicker">Hiring for infrastructure, DevOps or IT support?</p><h2 id="hiring-guide-title">Start with the work behind the role.</h2><div class="hiring-paths"><div><a href="/projects/hpc-monitoring">Monitoring → HPC Monitoring Dashboard</a><p>University lab availability, login activity and uptime in one view.</p></div><div><a href="/projects/backup-automation">Reliability → Burp Backup System</a><p>Local and remote copies, rotation and visible backup-run results.</p></div><div><a href="/projects/idrac-automation">Automation → iDRAC Telegram Bot</a><p>Python, Redfish and out-of-band server management.</p></div></div><a href="/skills#skills-matrix">Compare skills and supporting evidence →</a></section><div aria-label="Project filters" class="project-filters" role="group">
 <button aria-pressed="true" class="filter-btn active" data-filter="all" type="button">All</button>
 <button aria-pressed="false" class="filter-btn" data-filter="infrastructure" type="button">Infrastructure</button>
 <button aria-pressed="false" class="filter-btn" data-filter="automation" type="button">Automation</button>
 <button aria-pressed="false" class="filter-btn" data-filter="ai" type="button">AI</button>
 <button aria-pressed="false" class="filter-btn" data-filter="security" type="button">Security</button>
-<button aria-pressed="false" class="filter-btn" data-filter="web" type="button">Web</button></div><p class="project-count" id="project-count" role="status">Showing all 22 projects</p>
+<button aria-pressed="false" class="filter-btn" data-filter="web" type="button">Web</button><button aria-pressed="false" class="filter-btn" data-filter="monitoring" type="button">Monitoring</button></div><p class="project-count" id="project-count" role="status">Showing all 22 projects</p>
 <div class="grid grid-3" style="animation-delay: 0.2s;">
-<article class="project-card" data-category="ai infrastructure">
+<article class="project-card" data-category="ai infrastructure" id="project-engram">
 <div class="project-body">
 <div class="project-title-row"><h2 class="project-title">Engram</h2><span class="project-meta">Personal project</span></div>
 <p class="project-desc">A self-hosted memory and AI context platform with document ingestion, source-aware search, local AI and MCP integrations.</p>
 <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Next.js</span><span class="project-tag">MCP</span></div>
-<a class="project-cta" href="https://github.com/Jxyden34/Engram">Explore on GitHub<span class="sr-only">: Engram</span> →</a>
-</div>
+<a class="project-cta" href="/projects/engram">Read case study<span class="sr-only">: Engram</span> →</a>
+<p class="project-scope"><strong>Scope and outcome:</strong> Connects document ingestion, source-aware search, local AI processing and scoped MCP access in a self-hosted platform.</p></div>
 </article>
-<article class="project-card" data-category="infrastructure automation">
+<article class="project-card" data-category="infrastructure automation" id="project-cosmopod-os">
 <div class="project-body">
 <div class="project-title-row"><h2 class="project-title">Cosmopod OS</h2><span class="project-meta">In development</span></div>
 <p class="project-desc">A Linux distribution project for Raspberry Pi and x86-64 virtual machines, with a Wayland desktop and signed update tooling.</p>
 <div class="project-tags"><span class="project-tag">Linux</span><span class="project-tag">Yocto</span><span class="project-tag">Raspberry Pi</span></div>
-<a class="project-cta" href="https://github.com/Jxyden34/cosmopod-os">Explore on GitHub<span class="sr-only">: Cosmopod OS</span> →</a>
-</div>
+<a class="project-cta" href="/projects/cosmopod-os">Read case study<span class="sr-only">: Cosmopod OS</span> →</a>
+<p class="project-scope"><strong>Scope and outcome:</strong> Defines board-specific Linux images, a Wayland desktop and signed A/B update and recovery tooling; full release qualification remains in progress.</p></div>
 </article>
 <!-- Example project 1 -->
-<article class="project-card" data-category="infrastructure automation">
+<article class="project-card" data-category="infrastructure automation monitoring" id="project-hpc-monitoring">
 <div class="project-thumb">
 <img alt="HPC Monitor" decoding="async" loading="lazy" src="/images/HPC.png"/>
 </div>
@@ -81,10 +79,10 @@
 <span class="project-tag">Flask</span>
 <span class="project-tag">Automation</span>
 </div>
-<a class="project-cta" href="/projects/hpc-monitoring">Read case study<span class="sr-only">: HPC Monitoring Dashboard</span> →</a></div>
+<a class="project-cta" href="/projects/hpc-monitoring">Read case study<span class="sr-only">: HPC Monitoring Dashboard</span> →</a><p class="project-scope"><strong>Scope and outcome:</strong> Brings machine status, uptime and login activity into a shared view for a university lab environment.</p></div>
 </article>
 <!-- Example project 2 -->
-<article class="project-card" data-category="infrastructure automation">
+<article class="project-card" data-category="infrastructure automation monitoring" id="project-backup-automation">
 <div class="project-thumb">
 <img alt="Backup Pipelines" decoding="async" loading="lazy" src="/images/backup.png"/>
 </div>
@@ -99,10 +97,10 @@
 <span class="project-tag">Linux</span>
 <span class="project-tag">Backups</span>
 </div>
-<a class="project-cta" href="/projects/backup-automation">Read case study<span class="sr-only">: Burp Backup System</span> →</a></div>
+<a class="project-cta" href="/projects/backup-automation">Read case study<span class="sr-only">: Burp Backup System</span> →</a><p class="project-scope"><strong>Scope and outcome:</strong> Maintains separate local and remote backup tiers, with rotation and notifications for run results.</p></div>
 </article>
 <!-- Example project 3 -->
-<article class="project-card" data-category="automation security">
+<article class="project-card" data-category="automation security monitoring" id="project-idrac-automation">
 <div class="project-thumb">
 <img alt="iDRAC Bot" decoding="async" loading="lazy" src="/images/idrac.png"/>
 </div>
@@ -117,10 +115,10 @@
 <span class="project-tag">APIs</span>
 <span class="project-tag">DevOps</span>
 </div>
-<a class="project-cta" href="/projects/idrac-automation">Read case study<span class="sr-only">: iDRAC Telegram Bot</span> →</a></div>
+<a class="project-cta" href="/projects/idrac-automation">Read case study<span class="sr-only">: iDRAC Telegram Bot</span> →</a><p class="project-scope"><strong>Scope and outcome:</strong> Combines server status, graphs, history and out-of-band power actions in a Telegram workflow.</p></div>
 </article>
 <!-- Example project 4 -->
-<article class="project-card" data-category="automation">
+<article class="project-card" data-category="automation" id="project-3d-printing-pipeline">
 <div class="project-thumb">
 <img alt="3D printing pipeline" decoding="async" loading="lazy" src="/images/stl.png"/>
 </div>
@@ -135,10 +133,10 @@
 <span class="project-tag">3D Printing</span>
 <span class="project-tag">Python</span>
 </div>
-<a class="project-cta" href="/contact?project=3D%20Printing%20Pipeline">Discuss this project<span class="sr-only">: 3D Printing Pipeline</span></a></div>
+<a class="project-cta" href="/contact?project=3D%20Printing%20Pipeline">Discuss this project<span class="sr-only">: 3D Printing Pipeline</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Connects file watching, slicing, OctoPrint uploads and chat notifications in one print workflow.</p></div>
 </article>
 <!-- Example project 5 -->
-<article class="project-card" data-category="ai infrastructure">
+<article class="project-card" data-category="ai infrastructure" id="project-local-ai-stack">
 <div class="project-thumb">
 <img alt="Local AI" decoding="async" loading="lazy" src="/images/openwebui.png"/>
 </div>
@@ -153,10 +151,10 @@
 <span class="project-tag">GPU</span>
 <span class="project-tag">AI</span>
 </div>
-<a class="project-cta" href="/contact?project=Local%20AI%20Stack">Discuss this project<span class="sr-only">: Local AI Stack</span></a></div>
+<a class="project-cta" href="/contact?project=Local%20AI%20Stack">Discuss this project<span class="sr-only">: Local AI Stack</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Provides local GPU-backed model endpoints for experiments and integrations.</p></div>
 </article>
 <!-- Example project 6 -->
-<article class="project-card" data-category="infrastructure">
+<article class="project-card" data-category="infrastructure" id="project-proxmox">
 <div class="project-thumb">
 <img alt="Proxmox VE" decoding="async" loading="lazy" src="/images/proxmox.png"/>
 </div>
@@ -171,9 +169,9 @@
 <span class="project-tag">GPU</span>
 <span class="project-tag">Proxmox</span>
 </div>
-<a class="project-cta" href="/contact?project=Proxmox%20Virtual%20Environment">Discuss this project<span class="sr-only">: Proxmox Virtual Environment</span></a></div>
+<a class="project-cta" href="/projects/proxmox">Read case study<span class="sr-only">: Proxmox Virtual Environment</span> →</a><p class="project-scope"><strong>Scope and outcome:</strong> Combines virtual machines, GPU passthrough and automated backups in a personal lab.</p></div>
 </article>
-<article class="project-card" data-category="infrastructure">
+<article class="project-card" data-category="infrastructure" id="project-arcade">
 <div class="project-thumb">
 <img alt="Arcade" decoding="async" loading="lazy" src="/images/arcade.png"/>
 </div>
@@ -188,10 +186,10 @@
 <span class="project-tag">Raspberry Pi</span>
 <span class="project-tag">Arcade</span>
 </div>
-<a class="project-cta" href="/contact?project=Arcade">Discuss this project<span class="sr-only">: Arcade</span></a></div>
+<a class="project-cta" href="/contact?project=Arcade">Discuss this project<span class="sr-only">: Arcade</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Brings RetroPie games into a dedicated Raspberry Pi 4 arcade machine.</p></div>
 </article>
 <!-- Example project 6 -->
-<article class="project-card" data-category="ai">
+<article class="project-card" data-category="ai" id="project-comfy-webui">
 <div class="project-thumb">
 <img alt="ComfyWebUI" decoding="async" loading="lazy" src="/images/comfy.png"/>
 </div>
@@ -206,10 +204,10 @@
 <span class="project-tag">GPU</span>
 <span class="project-tag">ComfyUI</span>
 </div>
-<a class="project-cta" href="/contact?project=Comfy%20WebUI">Discuss this project<span class="sr-only">: Comfy WebUI</span></a></div>
+<a class="project-cta" href="/contact?project=Comfy%20WebUI">Discuss this project<span class="sr-only">: Comfy WebUI</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Provides browser-based control of ComfyUI models, prompts and image-generation steps.</p></div>
 </article>
 <!-- Example project 7 -->
-<article class="project-card" data-category="automation ai">
+<article class="project-card" data-category="automation ai" id="project-n8n-ai-automation">
 <div class="project-thumb">
 <img alt="n8n" decoding="async" loading="lazy" src="/images/n8n.png"/>
 </div>
@@ -224,10 +222,10 @@
 <span class="project-tag">AI</span>
 <span class="project-tag">Automation</span>
 </div>
-<a class="project-cta" href="/contact?project=n8n%20AI%20Automation">Discuss this project<span class="sr-only">: n8n AI Automation</span></a></div>
+<a class="project-cta" href="/contact?project=n8n%20AI%20Automation">Discuss this project<span class="sr-only">: n8n AI Automation</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Connects triggers, APIs, bots and infrastructure services in event-driven workflows.</p></div>
 </article>
 <!-- Example project 8 -->
-<article class="project-card" data-category="automation web">
+<article class="project-card" data-category="automation web" id="project-hindley-tech">
 <div class="project-thumb">
 <img alt="Portfolio" decoding="async" loading="lazy" src="/images/website.png"/>
 </div>
@@ -242,10 +240,10 @@
 <span class="project-tag">Branding</span>
 <span class="project-tag">Personal</span>
 </div>
-<a class="project-cta" href="/contact?project=hindley.tech">Discuss this project<span class="sr-only">: hindley.tech</span></a></div>
+<a class="project-cta" href="/contact?project=hindley.tech">Discuss this project<span class="sr-only">: hindley.tech</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Publishes project evidence, career information and a direct route to contact me.</p></div>
 </article>
 <!-- Example project 8 -->
-<article class="project-card" data-category="infrastructure security">
+<article class="project-card" data-category="infrastructure security" id="project-tailscale-vpn">
 <div class="project-thumb">
 <img alt="Tailscale" decoding="async" loading="lazy" src="/images/ts.png"/>
 </div>
@@ -260,10 +258,10 @@
 <span class="project-tag">Linux</span>
 <span class="project-tag">VPN</span>
 </div>
-<a class="project-cta" href="/contact?project=Tailscale%20VPN">Discuss this project<span class="sr-only">: Tailscale VPN</span></a></div>
+<a class="project-cta" href="/contact?project=Tailscale%20VPN">Discuss this project<span class="sr-only">: Tailscale VPN</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Connects personal devices and services through a private mesh with routing and access controls.</p></div>
 </article>
 <!-- Example project 9 -->
-<article class="project-card" data-category="automation ai">
+<article class="project-card" data-category="automation ai" id="project-nodejs-minecraftbot">
 <div class="project-thumb">
 <img alt="NodeJS" decoding="async" loading="lazy" src="/images/bot.png"/>
 </div>
@@ -279,10 +277,10 @@
 <span class="project-tag">AI</span>
 <span class="project-tag">Node.js</span>
 </div>
-<a class="project-cta" href="/contact?project=NodeJS%20MinecraftBot">Discuss this project<span class="sr-only">: NodeJS MinecraftBot</span></a></div>
+<a class="project-cta" href="/contact?project=NodeJS%20MinecraftBot">Discuss this project<span class="sr-only">: NodeJS MinecraftBot</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Provides a testbed for autonomous behaviour, game events and external API integrations.</p></div>
 </article>
 <!-- Example project 10 -->
-<article class="project-card" data-category="ai">
+<article class="project-card" data-category="ai" id="project-ai-city-building-game">
 <div class="project-thumb">
 <img alt="AiCity" decoding="async" loading="lazy" src="/images/AiCity.png"/>
 </div>
@@ -297,10 +295,10 @@
 <span class="project-tag">Website</span>
 <span class="project-tag">Game</span>
 </div>
-<a class="project-cta" href="/contact?project=AI%20City%20Building%20Game">Discuss this project<span class="sr-only">: AI City Building Game</span></a></div>
+<a class="project-cta" href="/contact?project=AI%20City%20Building%20Game">Discuss this project<span class="sr-only">: AI City Building Game</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Explores agents that respond to player strategies and a changing game environment.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="infrastructure">
+<article class="project-card" data-category="infrastructure monitoring" id="project-grafana">
 <div class="project-thumb">
 <img alt="graphina" decoding="async" loading="lazy" src="/images/graphina.png"/>
 </div>
@@ -315,10 +313,10 @@
 <span class="project-tag">Docker</span>
 <span class="project-tag">Data Visualization</span>
 </div>
-<a class="project-cta" href="/contact?project=Grafana">Discuss this project<span class="sr-only">: Grafana</span></a></div>
+<a class="project-cta" href="/contact?project=Grafana">Discuss this project<span class="sr-only">: Grafana</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Brings infrastructure metrics and monitoring information into shared dashboards.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="ai">
+<article class="project-card" data-category="ai" id="project-ai-trader">
 <div class="project-thumb">
 <img alt="Ai Trader" decoding="async" loading="lazy" src="/images/Ai Trader.png"/>
 </div>
@@ -333,10 +331,10 @@
 <span class="project-tag">AI</span>
 <span class="project-tag">Trading</span>
 </div>
-<a class="project-cta" href="/contact?project=Ai%20Trader">Discuss this project<span class="sr-only">: Ai Trader</span></a></div>
+<a class="project-cta" href="/contact?project=Ai%20Trader">Discuss this project<span class="sr-only">: Ai Trader</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Explores market data, signals and automation in an experimental interface.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="ai">
+<article class="project-card" data-category="ai" id="project-local-ai-training">
 <div class="project-thumb">
 <img alt="Local Ai Training" decoding="async" loading="lazy" src="/images/LocalAiTraining.png"/>
 </div>
@@ -351,10 +349,10 @@
 <span class="project-tag">AI</span>
 <span class="project-tag">Ai Training</span>
 </div>
-<a class="project-cta" href="/contact?project=Local%20Ai%20Training">Discuss this project<span class="sr-only">: Local Ai Training</span></a></div>
+<a class="project-cta" href="/contact?project=Local%20Ai%20Training">Discuss this project<span class="sr-only">: Local Ai Training</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Provides an interface for local data preparation, training and evaluation experiments.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="security infrastructure">
+<article class="project-card" data-category="security infrastructure" id="project-guac-webrdp">
 <div class="project-thumb">
 <img alt="Guac WebRDP" decoding="async" loading="lazy" src="/images/Guac WebRDP.png"/>
 </div>
@@ -369,10 +367,10 @@
 <span class="project-tag">WebRDP</span>
 <span class="project-tag">Access Control</span>
 </div>
-<a class="project-cta" href="/contact?project=Guac%20WebRDP">Discuss this project<span class="sr-only">: Guac WebRDP</span></a></div>
+<a class="project-cta" href="/contact?project=Guac%20WebRDP">Discuss this project<span class="sr-only">: Guac WebRDP</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Brings RDP, VNC and SSH connections into a browser-based remote access gateway.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="ai">
+<article class="project-card" data-category="ai" id="project-nebula-npm">
 <div class="project-thumb">
 <img alt="Nebula NPM" decoding="async" loading="lazy" src="/images/NebulaNPM.png"/>
 </div>
@@ -387,10 +385,10 @@
 <span class="project-tag">Docker</span>
 <span class="project-tag">AI interface</span>
 </div>
-<a class="project-cta" href="/contact?project=Nebula%20NPM">Discuss this project<span class="sr-only">: Nebula NPM</span></a></div>
+<a class="project-cta" href="/contact?project=Nebula%20NPM">Discuss this project<span class="sr-only">: Nebula NPM</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Provides a custom interface for exploring AI models and managing their dependencies.</p></div>
 </article>
 <!-- Example project 11 -->
-<article class="project-card" data-category="security infrastructure">
+<article class="project-card" data-category="security infrastructure monitoring" id="project-motioneye">
 <div class="project-thumb">
 <img alt="motioneye" decoding="async" loading="lazy" src="/images/meye.png"/>
 </div>
@@ -405,16 +403,16 @@
 <span class="project-tag">Docker</span>
 <span class="project-tag">Surveillance</span>
 </div>
-<a class="project-cta" href="/contact?project=MotionEye">Discuss this project<span class="sr-only">: MotionEye</span></a></div>
+<a class="project-cta" href="/contact?project=MotionEye">Discuss this project<span class="sr-only">: MotionEye</span></a><p class="project-scope"><strong>Scope and outcome:</strong> Brings camera feeds, recording and motion notifications into one monitoring setup.</p></div>
 </article>
-<article class="project-card" data-category="web"><div class="project-body"><p class="project-kind">Web development</p><h2 class="project-title">LCC Website</h2><p class="project-meta">Jul 2021 – Jul 2022</p><p class="project-desc">A website project associated with Leeds City College, with contributors Dylan and Joshua.</p><div class="project-tags"><span class="project-tag">Front-end development</span><span class="project-tag">Web</span></div><a class="project-cta" href="https://www.linkedin.com/in/jaydenhindley/">Project background on LinkedIn →</a></div></article></div>
-</div>
+<article class="project-card" data-category="web" id="project-lcc-website"><div class="project-body"><p class="project-kind">Web development</p><h2 class="project-title">LCC Website</h2><p class="project-meta">Jul 2021 – Jul 2022</p><p class="project-desc">A website project associated with Leeds City College, with contributors Dylan and Joshua.</p><div class="project-tags"><span class="project-tag">Front-end development</span><span class="project-tag">Web</span></div><a class="project-cta" href="https://www.linkedin.com/in/jaydenhindley/">Project background on LinkedIn →</a><p class="project-scope"><strong>Scope and outcome:</strong> A college website project completed with contributors Dylan and Joshua.</p></div></article></div>
+<section class="hiring-block contact-cv"><h2>Have a role in mind?</h2><div class="hiring-actions"><a class="btn" href="/contact">Contact Jayden</a><a class="text-link" download="Jayden_Hindley_CV.pdf" href="/Files/Jayden_Hindley_CV.pdf">Download CV <span class="sr-only">(PDF)</span></a></div><a class="hiring-email" href="mailto:jayden@hindley.tech">jayden@hindley.tech</a></section></div>
 </section>
 </main>
 <footer>
 <div class="footer-inner">
 <span>© <span id="year"></span> hindley.tech</span>
-<a class="text-link" href="/contact">Get in touch</a></div>
+<a class="text-link" href="/contact">Get in touch</a><a class="text-link" href="mailto:jayden@hindley.tech">jayden@hindley.tech</a></div>
 </footer>
 <!-- Chatbot -->
 <button aria-controls="chatbot-container" aria-expanded="false" aria-label="Open portfolio assistant" id="chatbot-toggle" type="button">Portfolio guide</button>
@@ -431,8 +429,8 @@
 <div id="chatbot-input"><label class="sr-only" for="user-input">Ask about Jayden's portfolio</label><input autocomplete="off" id="user-input" maxlength="2000" placeholder="Ask about a project or skill…" type="text"/><button aria-label="Send question" id="send-btn" type="button">➤</button></div>
 <p class="chat-footer" id="chat-mode">Portfolio guide · answers from the public site.</p>
 </div>
-<script src="/js/chatbot.js?v=20261027-1"></script>
-<script src="/js/terminal.js?v=20261010-profile1"></script>
-<script src="/js/konami.js?v=20261010-profile1"></script>
-<script src="/js/projects.js?v=20261010-profile1"></script><script src="/js/common.js?v=20261010-profile1"></script></body>
+<script src="/js/chatbot.js?v=20261125-1"></script>
+<script src="/js/terminal.js?v=20261125-1"></script>
+<script src="/js/konami.js?v=20261125-1"></script>
+<script src="/js/projects.js?v=20261125-1"></script><script src="/js/common.js?v=20261125-1"></script></body>
 </html>

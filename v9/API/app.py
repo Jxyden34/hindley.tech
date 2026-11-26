@@ -33,13 +33,16 @@ def page_content(name):
 def answer(message):
     q = message.casefold()
     links = []
+    if re.search(r'\b(cv|resume|résumé|curriculum)\b', q):
+        return "You can download Jayden's current CV as a PDF, with experience, education, training and links to the project evidence. For a conversation about a role, email jayden@hindley.tech.", [{'href':'/Files/Jayden_Hindley_CV.pdf','label':'Download CV (PDF)'},{'href':'/contact','label':'Contact Jayden'}]
     # Shared public profile facts keep career answers consistent with the About page.
     if any(word in q for word in ('experience', 'career', 'education', 'about jayden', 'who is', 'job', 'role', 'qualification', 'certificate', 'certification', 'credential', 'apprentice', 'training', 'intune', 'stale profile', 'teams installation')):
         profile = json.loads((SITE / 'profile.json').read_text(encoding='utf-8'))
         if any(word in q for word in ('intune', 'stale profile', 'teams installation')):
-            reply = profile['education'][0]['details'][2]
+            qualification = next(c for c in profile['credentials'] if c['title'].startswith('BCS Level 4'))
+            reply = qualification['details'][2]
         elif any(word in q for word in ('qualification', 'certificate', 'certification', 'credential', 'training')):
-            reply = 'Jayden completed the BCS Level 4 DevOps Engineer Apprenticeship in September 2026 (overall Pass; professional discussion Distinction). His listed qualifications and training also include BCS data privacy, governance and policy in AI, CCSK v5 Plus, Microsoft AZ-400 training, and Cisco Computer Hardware and Introduction to Cybersecurity. The ISC2 Candidate entry expired in May 2025; it is candidate status. The About page has dates and available credential links.'
+            reply = 'Jayden completed the BCS Level 4 DevOps Engineer Apprenticeship in September 2026 (overall Pass; professional discussion Distinction). His qualifications and training also include BCS data privacy, governance and policy in AI, CCSK v5 Plus, Microsoft AZ-400 training, and Cisco Computer Hardware and Introduction to Cybersecurity. AZ-400 is listed as training, not DevOps Expert certification. The About page has dates, credential links and a separate earlier-learning history.'
         elif any(word in q for word in ('education', 'apprentice')):
             reply = 'Jayden completed the Level 4 DevOps Engineer Apprenticeship with Firebrand Training, June 2025–September 2026: overall Pass, with a Distinction in the professional discussion. His assessment project automated stale-profile and legacy Teams remediation using PowerShell, Microsoft Intune and deployment pipelines. Earlier education includes T-level Computer Science at Leeds City College (2021–2023) and GCSE studies at BBG Academy (2016–2021).'
         else:
@@ -54,9 +57,13 @@ def answer(message):
     if any(word in q for word in ('hpc','lab machine','flask','uptime dashboard')):
         return "The HPC Monitoring Dashboard is a Python and Flask application that pings lab machines, parses login logs, and shows status and uptime in one web dashboard. The portfolio lists it as in use in a university environment.", [{'href':'/projects/hpc-monitoring','label':'Read the HPC case study'}]
     if any(word in q for word in ('skills','toolkit','tech stack','tools','technologies')):
-        return "Jayden's toolkit spans infrastructure (Linux, Proxmox and Docker), automation (PowerShell, Python and Bash), security and networking, and local AI and observability. The Skills page groups the tools and includes a short description of each.", [{'href':'/skills','label':'Explore the skills'},{'href':'/project','label':'See the projects'}]
+        return "Jayden's toolkit spans infrastructure, scripting, automation, monitoring, security and local AI. The Skills page includes an evidence matrix that separates professional work, personal lab projects and training, followed by the grouped tools.", [{'href':'/skills#skills-matrix','label':'Compare skills and evidence'},{'href':'/project','label':'See the projects'}]
+    if 'engram' in q:
+        return "Engram is Jayden's personal self-hosted memory and AI context project. It brings document ingestion, source-aware retrieval, local Ollama processing and scoped REST/MCP access into one platform. The case study links to public implementation evidence without claiming employer deployment or user-adoption figures.", [{'href':'/projects/engram','label':'Read the Engram case study'}]
+    if 'cosmopod' in q:
+        return "Cosmopod OS is Jayden's Linux distribution project for Raspberry Pi and x86-64 virtual machines, using Yocto, Wayland and signed update tooling. It remains in development, with qualification tracked separately for each target.", [{'href':'/projects/cosmopod-os','label':'Read the Cosmopod OS case study'}]
     if any(word in q for word in ('project','built','portfolio','examples','work on')):
-        return "Three featured builds are the HPC Monitoring Dashboard, the Burp Backup System and the iDRAC Telegram Bot. Other projects cover 3D printing automation, local AI, Proxmox, n8n and more. The featured case studies explain the problem, the build and what it enables.", [{'href':'/project','label':'Browse all projects'}]
+        return "Six project stories cover the HPC Monitoring Dashboard, Burp Backup System, iDRAC Telegram Bot, Engram, Cosmopod OS and Proxmox Virtual Environment. Each explains the problem, the build, tools, scope, outcome and a next improvement. The full catalogue has 22 projects and category filters, including Monitoring.", [{'href':'/project','label':'Browse projects and the hiring guide'}]
     for name, description, related in page_content('skills.html').skills:
         # Match actual tool names, not substrings inside unrelated words.
         if re.search(r'(?<!\w)' + re.escape(name.casefold()) + r'(?!\w)', q):
